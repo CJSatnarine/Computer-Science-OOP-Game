@@ -5,7 +5,8 @@ import java.awt.event.*;
 public class MouseMovement extends Panel implements MouseListener, MouseMotionListener
 {
     //Variables 
-    public boolean isClicked = false;
+    int xPos;
+    int yPos;
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -15,17 +16,13 @@ public class MouseMovement extends Panel implements MouseListener, MouseMotionLi
     @Override
     public void mousePressed(MouseEvent e) {
         // Invoked when a mouse button has been pressed on a component.
-        isClicked = true;
-        if (isClicked)
-        {
-            System.out.println("among us");
-        }
+
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
         // Invoked when a mouse button has been released on a component. 
-        isClicked = false;
+
     }
 
     @Override
@@ -49,9 +46,6 @@ public class MouseMovement extends Panel implements MouseListener, MouseMotionLi
     @Override
     public void mouseMoved(MouseEvent e) {
         // (Invokes when the mouse is being moved.
-        
-    }
-
-    
-    
+        System.out.println("moved");
+    } 
 }
