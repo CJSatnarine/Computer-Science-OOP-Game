@@ -5,15 +5,16 @@ import java.awt.Color;
 
 public class GUI extends JFrame
 {
+    Panel panel;
     GUI()
     {
-        int frameWidth = 400;
-        int frameHeight = 400;
-        
+        panel = new Panel();
+
         this.setTitle("SLugbury: Animal Edition");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setSize(frameWidth, frameHeight);
+        this.add(panel);
+        this.pack();
         this.setVisible(true);
 
         //Makes a nice purple colour.
