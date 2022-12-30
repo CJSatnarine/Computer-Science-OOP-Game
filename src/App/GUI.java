@@ -16,8 +16,5 @@ public class GUI extends JFrame
         this.add(panel);
         this.pack();
         this.setVisible(true);
-
-        //Makes a nice purple colour.
-        this.getContentPane().setBackground(new Color(123, 50, 250));
     }
 }
