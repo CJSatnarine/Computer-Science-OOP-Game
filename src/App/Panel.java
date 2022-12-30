@@ -5,12 +5,16 @@ import java.awt.Graphics2D;
 import java.awt.Dimension;
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Image;
 
 import javax.swing.JPanel;
 
 public class Panel extends JPanel 
 {
+    public int playerX = 0;
+    public int playerY = 0;
+    public int playerWidth = 30;
+    public int playerHeight = 30;
+
     Panel()
     {
         this.setPreferredSize(new Dimension(400, 400));
@@ -20,10 +24,7 @@ public class Panel extends JPanel
     {
         Graphics2D g2D = (Graphics2D) g; 
 
-        g2D.setPaint(new Color(123, 50, 250));
-        g2D.setStroke(new BasicStroke(5));
-        g2D.drawLine(0, 0, 400, 400);
 
-        g2D.fillRect(0, 0, 50, 50);
+        g2D.fillRect(playerX, playerY, playerWidth, playerHeight);
     }
 }
