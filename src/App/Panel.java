@@ -15,6 +15,7 @@ public class Panel extends JPanel
     public int playerWidth = 30;
     public int playerHeight = 30;
 
+
     Panel()
     {
         this.setPreferredSize(new Dimension(400, 400));
@@ -23,5 +24,7 @@ public class Panel extends JPanel
     public void paint(Graphics g)
     {
         Graphics2D g2D = (Graphics2D) g; 
+        
+        g2D.fillRect(playerX, playerHeight, playerWidth, playerHeight);
     }
 }

@@ -1,5 +1,6 @@
 package App;
 
+import java.awt.Color;
 import java.awt.event.*;
 
 public class MouseMovement extends Panel implements MouseListener, MouseMotionListener
@@ -7,10 +8,17 @@ public class MouseMovement extends Panel implements MouseListener, MouseMotionLi
     //Variables 
     int xPos;
     int yPos;
+    boolean isClicked = false;
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        // Invoked when the mouse button has been clicked (pressed and released) on a component        
+        // Invoked when the mouse button has been clicked (pressed and released) on a component      
+        isClicked = true;
+        if (isClicked)
+        {
+            System.out.println("Clicked");
+            isClicked = false;
+        }
     }
 
     @Override
@@ -45,7 +53,6 @@ public class MouseMovement extends Panel implements MouseListener, MouseMotionLi
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        // (Invokes when the mouse is being moved.
-        System.out.println("moved");
+        // Invokes when the mouse is being moved.
     } 
 }
