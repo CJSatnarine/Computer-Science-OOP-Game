@@ -5,7 +5,7 @@ import java.awt.Color;
 
 public class GUI extends JFrame
 {
-    Panel panel;
+    public Panel panel;
     MouseMovement mouseMovement = new MouseMovement();
     GUI()
     {
@@ -19,5 +19,6 @@ public class GUI extends JFrame
         this.pack();
         this.setVisible(true);
         this.addMouseListener(mouseMovement);
+        this.addMouseMotionListener(mouseMovement);
     }
 }
