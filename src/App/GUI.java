@@ -3,12 +3,11 @@ package App;
 import javax.swing.JFrame;
 import java.awt.Color;
 
-public class GUI extends JFrame
-{
-    public Panel panel;
+public class GUI extends JFrame {
+    Panel panel;
     MouseMovement mouseMovement = new MouseMovement();
-    GUI()
-    {
+
+    GUI() {
         panel = new Panel();
 
         this.setTitle("Slugbury: Animal Edition");

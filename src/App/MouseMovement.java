@@ -1,12 +1,8 @@
 package App;
 
-import java.awt.Color;
 import java.awt.event.*;
-import java.awt.Graphics;
-import javax.swing.JPanel;
 
-public class MouseMovement extends Panel implements MouseListener, MouseMotionListener
-{
+public class MouseMovement extends Panel implements MouseListener, MouseMotionListener {
 
     // Mouse Listener
     @Override
