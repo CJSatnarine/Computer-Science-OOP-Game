@@ -50,5 +50,8 @@ public class MouseMovement extends Panel implements MouseListener, MouseMotionLi
     public void mouseMoved(MouseEvent e) {
         // Invokes when the mouse is being moved.
         System.out.println("The mouse moved!");
+
+        playerX = e.getX();
+        playerY = e.getY();
     } 
 }

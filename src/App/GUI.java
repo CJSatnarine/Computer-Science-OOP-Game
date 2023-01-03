@@ -14,7 +14,7 @@ public class GUI extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.add(panel);
-        this.setBackground(Color.BLACK);
+        this.setBackground(Color.WHITE);
         this.pack();
         this.setVisible(true);
         this.addMouseListener(mouseMovement);
