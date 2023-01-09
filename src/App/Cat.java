@@ -3,16 +3,16 @@ package App;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-public class Slug {
+public class Cat {
     
-    //Slug coordinates
+    //Cat coordinates
     private int x;
     private int y;
     private int size;
     private int speed;
     private KeyHandler k;
 
-    public Slug(int x, int y, int size, int speed, KeyHandler k) {
+    public Cat(int x, int y, int size, int speed, KeyHandler k) {
         this.x = x;
         this.y = y;
         this.size = size;
@@ -20,14 +20,14 @@ public class Slug {
         this.k = k;
     }
 
-    public void drawSlug(Graphics2D g2) {
-        g2.setColor(Color.green);
+    public void drawCat(Graphics2D g2) {
+        g2.setColor(new Color(123, 50, 150));
         g2.fillRect(x, y, size, size);
 
         g2.dispose();
     }
 
-    public void slugMove() {
+    public void move() {
         if (k.upPressed) {
             y -= speed;
         } 
