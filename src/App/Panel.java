@@ -24,6 +24,7 @@ public class Panel extends JPanel implements Runnable {
     int FPS = 60;
 
     KeyHandler keyH = new KeyHandler();
+    Slug slug1;
     Thread gameThread;
 
     //Player's default position and speed. 
@@ -37,6 +38,8 @@ public class Panel extends JPanel implements Runnable {
         this.setDoubleBuffered(true); //If set to true, all the drawings from this component will be done in an offscreen painting buffer. Enabling this can improve the game's rendering performance.
         this.addKeyListener(keyH);
         this.setFocusable(true);
+
+        slug1 = new Slug(playerX, playerY, tileSize, playerSpeed, keyH);
     }
 
     public void startGameThread() {
@@ -52,7 +55,7 @@ public class Panel extends JPanel implements Runnable {
         //Creating the game loop.
         while(gameThread != null) {
             //Update
-            updated();
+            update();
 
             //Draw/repaint
             repaint();
@@ -73,22 +76,8 @@ public class Panel extends JPanel implements Runnable {
         }
     }
 
-    //Put this into a new class??
-    public void updated() {
-        if (keyH.upPressed) {
-            playerY -= playerSpeed;
-        } 
-        
-        else if (keyH.downPressed) {
-            playerY += playerSpeed;
-        } 
-
-        else if (keyH.leftPressed) {
-            playerX -= playerSpeed;
-        }
-        else if (keyH.rightPressed) {
-            playerX += playerSpeed;
-        }
+    public void update() {
+        slug1.slugMove();
     }
 
     //Standard method to draw things on JPanel
@@ -96,9 +85,11 @@ public class Panel extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        g2.setColor(Color.white);
-        g2.fillRect(playerX, playerY, tileSize, tileSize);
+        slug1.drawSlug(g2);
 
-        g2.dispose();
+        // g2.setColor(Color.white);
+        // g2.fillRect(playerX, playerY, tileSize, tileSize);
+
+        // g2.dispose();
     }
 }
