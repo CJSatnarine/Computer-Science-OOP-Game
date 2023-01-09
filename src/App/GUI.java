@@ -6,6 +6,7 @@ import java.awt.Color;
 public class GUI extends JFrame {
     Panel panel;
     MouseMovement mouseMovement = new MouseMovement();
+    KeyHandler key = new KeyHandler();
 
     GUI() {
         panel = new Panel();
@@ -14,10 +15,12 @@ public class GUI extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.add(panel);
-        this.setBackground(Color.BLACK);
         this.pack();
         this.setVisible(true);
         this.addMouseListener(mouseMovement);
         this.addMouseMotionListener(mouseMovement);
+        this.addKeyListener(key);
+
+        panel.startGameThread();
     }
 }
