@@ -36,8 +36,7 @@ public class Panel extends JPanel implements Runnable {
     //Enemy position and speed
     int enemyX = 100;
     int enemyY = 100;
-    int enemySpeed = 4;
-
+    int enemySpeed = 2;
 
     Panel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
