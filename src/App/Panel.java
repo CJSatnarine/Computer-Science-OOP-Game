@@ -25,12 +25,19 @@ public class Panel extends JPanel implements Runnable {
 
     KeyHandler keyH = new KeyHandler();
     Animal player;
+    Slug enemy;
     Thread gameThread;
 
     //Player's default position and speed. 
     int playerX = 20;
     int playerY = 20;
     int playerSpeed = 4;
+
+    //Enemy position and speed
+    int enemyX = 100;
+    int enemyY = 100;
+    int enemySpeed = 4;
+
 
     Panel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -40,6 +47,7 @@ public class Panel extends JPanel implements Runnable {
         this.setFocusable(true);
 
         player = new Animal(playerX, playerY, tileSize, playerSpeed, keyH);
+        enemy = new Slug(enemyX, enemyY, tileSize, tileSize, enemySpeed);
     }
 
     public void startGameThread() {
@@ -81,15 +89,13 @@ public class Panel extends JPanel implements Runnable {
     }
 
     //Standard method to draw things on JPanel
+    @Override
     public void paintComponent (Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D) g;
+        Graphics2D playerGraphics = (Graphics2D) g;
+        Graphics2D enemyGraphics = (Graphics2D) g;
 
-        player.draw(g2);
-
-        // g2.setColor(Color.white);
-        // g2.fillRect(playerX, playerY, tileSize, tileSize);
-
-        // g2.dispose();
+        player.draw(playerGraphics);
+        enemy.draw(enemyGraphics);
     }
 }

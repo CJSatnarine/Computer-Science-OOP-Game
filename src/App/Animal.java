@@ -11,6 +11,7 @@ public class Animal {
     private int size;
     private int speed;
     private KeyHandler k;
+    private Color purple = new Color(123, 50, 150);
 
     public Animal(int x, int y, int size, int speed, KeyHandler k) {
         this.x = x;
@@ -21,10 +22,10 @@ public class Animal {
     }
 
     public void draw(Graphics2D g2) {
-        g2.setColor(new Color(123, 50, 150));
+        g2.setColor(purple);
         g2.fillRect(x, y, size, size);
 
-        g2.dispose();
+        //g2.dispose(); //causes the JFrame window to be destroyed and cleaned up by the operating system.
     }
 
     public void move() {
