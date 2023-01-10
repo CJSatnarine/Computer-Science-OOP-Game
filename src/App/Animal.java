@@ -3,16 +3,16 @@ package App;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-public class Cat {
+public class Animal {
     
-    //Cat coordinates
+    //animal coordinates
     private int x;
     private int y;
     private int size;
     private int speed;
     private KeyHandler k;
 
-    public Cat(int x, int y, int size, int speed, KeyHandler k) {
+    public Animal(int x, int y, int size, int speed, KeyHandler k) {
         this.x = x;
         this.y = y;
         this.size = size;
@@ -20,7 +20,7 @@ public class Cat {
         this.k = k;
     }
 
-    public void drawCat(Graphics2D g2) {
+    public void draw(Graphics2D g2) {
         g2.setColor(new Color(123, 50, 150));
         g2.fillRect(x, y, size, size);
 
