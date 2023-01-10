@@ -5,8 +5,8 @@ import java.awt.Graphics2D;
 
 public class Slug {
 
-    private int x;
-    private int y;
+    private  int x;
+    private final int y;
     private int width;
     private int height;
     private int speed;
@@ -23,8 +23,12 @@ public class Slug {
         g2.setColor(Color.white);
         g2.fillRect(x, y, width, height);
 
-        y += speed;
+        x += speed;
 
         //g2.dispose(); //causes the JFrame window to be destroyed and cleaned up by the operating system.
+    }
+
+    public void move() {
+
     }
 }
