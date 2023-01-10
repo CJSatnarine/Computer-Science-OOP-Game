@@ -24,7 +24,7 @@ public class Panel extends JPanel implements Runnable {
     int FPS = 60;
 
     KeyHandler keyH = new KeyHandler();
-    Cat cat1;
+    Animal player;
     Thread gameThread;
 
     //Player's default position and speed. 
@@ -39,7 +39,7 @@ public class Panel extends JPanel implements Runnable {
         this.addKeyListener(keyH);
         this.setFocusable(true);
 
-        cat1 = new Cat(playerX, playerY, tileSize, playerSpeed, keyH);
+        player = new Animal(playerX, playerY, tileSize, playerSpeed, keyH);
     }
 
     public void startGameThread() {
@@ -77,7 +77,7 @@ public class Panel extends JPanel implements Runnable {
     }
 
     public void update() {
-        cat1.move();
+        player.move();
     }
 
     //Standard method to draw things on JPanel
@@ -85,7 +85,7 @@ public class Panel extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        cat1.drawCat(g2);
+        player.draw(g2);
 
         // g2.setColor(Color.white);
         // g2.fillRect(playerX, playerY, tileSize, tileSize);
