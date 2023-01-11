@@ -7,6 +7,8 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+import java.util.Random;
+
 public class Panel extends JPanel implements Runnable {
 
     //Screen settings.
@@ -27,6 +29,7 @@ public class Panel extends JPanel implements Runnable {
     Animal player;
     Slug enemy;
     Thread gameThread;
+    Random rand = new Random();
 
     //Player's default position and speed. 
     int playerX = 20;
@@ -35,7 +38,7 @@ public class Panel extends JPanel implements Runnable {
 
     //Enemy position and speed
     int enemyX = 100;
-    int enemyY = 100;
+    int enemyY = rand.nextInt(0, screenHeight - tileSize);
     int enemySpeed = 2;
 
     Panel() {
@@ -47,6 +50,9 @@ public class Panel extends JPanel implements Runnable {
 
         player = new Animal(playerX, playerY, tileSize, playerSpeed, keyH);
         enemy = new Slug(enemyX, enemyY, tileSize, tileSize, enemySpeed);
+
+        
+        System.out.println(enemyY);
     }
 
     public void startGameThread() {
@@ -85,6 +91,7 @@ public class Panel extends JPanel implements Runnable {
 
     public void update() {
         player.move();
+        enemy.move();
     }
 
     //Standard method to draw things on JPanel
@@ -95,6 +102,6 @@ public class Panel extends JPanel implements Runnable {
         Graphics2D enemyGraphics = (Graphics2D) g;
 
         player.draw(playerGraphics);
-        enemy.draw(enemyGraphics);
+        enemy.draw(enemyGraphics, 3);
     }
 }
