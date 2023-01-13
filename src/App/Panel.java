@@ -26,7 +26,7 @@ public class Panel extends JPanel implements Runnable {
     int FPS = 60;
 
     KeyHandler keyH = new KeyHandler();
-    Animal player;
+    Player player;
     Slug enemy;
     Thread gameThread;
     Random rand = new Random();
@@ -38,7 +38,8 @@ public class Panel extends JPanel implements Runnable {
 
     //Enemy position and speed
     int enemyX = 100;
-    int enemyY = rand.nextInt(0, screenHeight - tileSize);
+    // int enemyY = rand.nextInt(0, screenHeight - tileSize);
+    int enemyY = rand.nextInt(screenHeight - tileSize);
     int enemySpeed = 2;
 
     Panel() {
@@ -48,7 +49,7 @@ public class Panel extends JPanel implements Runnable {
         this.addKeyListener(keyH);
         this.setFocusable(true);
 
-        player = new Animal(playerX, playerY, tileSize, playerSpeed, keyH);
+        player = new Player(playerX, playerY, tileSize, playerSpeed, keyH);
         enemy = new Slug(enemyX, enemyY, tileSize, tileSize, enemySpeed);
 
         
