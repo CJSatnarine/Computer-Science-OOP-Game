@@ -3,17 +3,18 @@ package App;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-public class Animal {
+public class Player {
     
     //animal coordinates
+    private Color purple = new Color(123, 50, 150);
     private int x;
     private int y;
     private int size;
     private int speed;
     private KeyHandler k;
-    private Color purple = new Color(123, 50, 150);
+    //private MouseMovement mm;
 
-    public Animal(int x, int y, int size, int speed, KeyHandler k) {
+    public Player(int x, int y, int size, int speed, KeyHandler k) {
         this.x = x;
         this.y = y;
         this.size = size;
@@ -44,5 +45,10 @@ public class Animal {
             x += speed;
         }
     }
+    
+    // public void direction() {
+    //     //Calculate direction inside of this method.
+
+    // }
 
 }
