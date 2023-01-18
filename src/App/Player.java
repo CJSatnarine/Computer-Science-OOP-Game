@@ -11,6 +11,7 @@ public class Player {
     private int y;
     private int size;
     private int speed;
+    private double angle;
     private KeyHandler k;
     //private MouseMovement mm;
 
@@ -19,6 +20,7 @@ public class Player {
         this.y = y;
         this.size = size;
         this.speed = speed;
+        //this.angle = angle;
         this.k = k;
     }
 
@@ -44,6 +46,10 @@ public class Player {
         else if (k.rightPressed) {
             x += speed;
         }
+    }
+
+    public void direction() {
+        
     }
     
     // public void direction() {

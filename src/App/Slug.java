@@ -9,6 +9,7 @@ import java.util.Random;
 
 public class Slug {
 
+
     private int x;
     private int y;
     private int width;
@@ -24,26 +25,27 @@ public class Slug {
         this.speed = speed;
     }
 
+    /*
+    Description: Method to draw a new rectangle and stores each rectangle to an array list. 
+    @g2: Uses the Graphics2D
+    @num: is used to set the number of rectangles to draw 
+    */
+
+    //Issue: cannot make rectangles draw in different, static y-positions. 
     public void draw(Graphics2D g2, int num) {
         //Rectangle[] rects = new Rectangle[num];
         ArrayList <Rectangle> rect = new ArrayList<Rectangle>();
 
         //For loop to create/draw num amount of enemies
-        for (int i = 0; i <= num; i++) {
-            //rects[i] = new Rectangle(x, y, width, height);
+        for (int i = 0; i <= num; i++) {;
             rect.add(new Rectangle(x, y, width, height));
 
             g2.setColor(Color.WHITE);
             g2.fill(rect.get(i));
-            //g2.fillRect(x, y + 100, width, height);
-            //g2.fill(rects[i]);
+            y *= rand.nextInt(10);
         }
 
         //y = rand.nextInt(0, 600);
-
-        // g2.setColor(Color.white);
-        // g2.fillRect(x, y + height + 200, width, height);
-
         //g2.dispose(); //causes the JFrame window to be destroyed and cleaned up by the operating system.
     }
 

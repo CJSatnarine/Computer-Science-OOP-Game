@@ -31,10 +31,11 @@ public class Panel extends JPanel implements Runnable {
     Thread gameThread;
     Random rand = new Random();
 
-    //Player's default position and speed. 
+    //Player's settings. 
     int playerX = 20;
     int playerY = 20;
     int playerSpeed = 4;
+    double angle = 0;
 
     //Enemy position and speed
     int enemyX = 100;
@@ -58,7 +59,7 @@ public class Panel extends JPanel implements Runnable {
 
     public void startGameThread() {
         gameThread = new Thread(this);
-        gameThread.start();
+        gameThread.start(); // i do not like cats - cj frfrfrfrfr
     }
 
     @Override
@@ -103,6 +104,8 @@ public class Panel extends JPanel implements Runnable {
         Graphics2D enemyGraphics = (Graphics2D) g;
 
         player.draw(playerGraphics);
-        enemy.draw(enemyGraphics, 3);
+        enemy.draw(enemyGraphics, 2);
+
+        repaint();
     }
 }
