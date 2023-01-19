@@ -38,8 +38,7 @@ public class Panel extends JPanel implements Runnable {
     double angle = 0;
 
     //Enemy position and speed
-    int enemyX = 100;
-    // int enemyY = rand.nextInt(0, screenHeight - tileSize);
+    int enemyX = screenWidth;
     int enemyY = rand.nextInt(screenHeight - tileSize);
     int enemySpeed = 2;
 

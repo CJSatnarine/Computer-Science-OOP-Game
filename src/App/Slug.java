@@ -42,7 +42,7 @@ public class Slug {
 
             g2.setColor(Color.WHITE);
             g2.fill(rect.get(i));
-            y *= rand.nextInt(10);
+            //y = rand.nextInt(10);
         }
 
         //y = rand.nextInt(0, 600);
@@ -54,6 +54,6 @@ public class Slug {
     }
 
     public void move() {
-        x += speed;
+        x -= speed;
     }
 }
