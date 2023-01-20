@@ -46,6 +46,7 @@ public class Panel extends JPanel implements Runnable {
     int enemySpeed = 2;
 
     Panel() {
+        angle = 0;
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true); //If set to true, all the drawings from this component will be done in an offscreen painting buffer. Enabling this can improve the game's rendering performance.
@@ -105,12 +106,10 @@ public class Panel extends JPanel implements Runnable {
     @Override
     public void paintComponent (Graphics g) {
         super.paintComponent(g);
-        Graphics2D playerGraphics = (Graphics2D) g;
-        Graphics2D enemyGraphics = (Graphics2D) g;
+        Graphics2D g2d = (Graphics2D) g;
 
-        player.drawPlayer(playerGraphics);
-        enemy.drawSlug(enemyGraphics, 2);
-
-        repaint();
+        player.drawPlayer(g2d);
+        enemy.drawSlug(g2d, 2);
+        g2d.dispose();
     }
 }

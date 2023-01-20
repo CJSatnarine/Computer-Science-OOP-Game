@@ -26,6 +26,7 @@ public class Player {
     }
 
     public void drawPlayer(Graphics2D g2) {
+        g2.rotate(-angle);
         g2.setColor(purple);
         g2.fillRect(x, y, size, size);
         g2.rotate(angle);
@@ -35,6 +36,9 @@ public class Player {
 
     //Movement based on keyboard input. 
     public void move() {
+        angle = Math.atan2(mouseMove.returnX() - ((y + size) / 2), mouseMove.returnY() - ((x + size) / 2));
+        System.out.println(angle);
+        
         if (k.upPressed) {
             y -= speed;
         } 
