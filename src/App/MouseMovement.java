@@ -2,7 +2,10 @@ package App;
 
 import java.awt.event.*;
 
-public class MouseMovement extends Panel implements MouseListener, MouseMotionListener {
+public class MouseMovement implements MouseListener, MouseMotionListener {
+
+    public double mouseX;
+    public double mouseY;
 
     // Mouse Listener
     @Override
@@ -43,7 +46,17 @@ public class MouseMovement extends Panel implements MouseListener, MouseMotionLi
     @Override
     public void mouseMoved(MouseEvent e) {
         // Invokes when the mouse is being moved.
-        // playerX = e.getX();
-        // playerY = e.getY();
+
     } 
+
+    public double getX(MouseEvent e) {
+        mouseX = e.getX();
+        return mouseX;
+    }
+
+    public double getY(MouseEvent e) {
+        mouseY = e.getY();
+        return mouseX;
+    }
+
 }

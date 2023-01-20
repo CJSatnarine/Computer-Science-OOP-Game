@@ -4,8 +4,6 @@ import javax.swing.JFrame;
 
 public class GUI extends JFrame {
     Panel panel;
-    MouseMovement mouseMovement = new MouseMovement();
-    KeyHandler key = new KeyHandler();
 
     GUI() {
         panel = new Panel();
@@ -16,9 +14,6 @@ public class GUI extends JFrame {
         this.add(panel);
         this.pack();
         this.setVisible(true);
-        this.addMouseListener(mouseMovement);
-        this.addMouseMotionListener(mouseMovement);
-        this.addKeyListener(key);
 
         panel.startGameThread();
     }

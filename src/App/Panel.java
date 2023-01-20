@@ -26,16 +26,19 @@ public class Panel extends JPanel implements Runnable {
     int FPS = 60;
 
     KeyHandler keyH = new KeyHandler();
+    MouseMovement mouseMove = new MouseMovement();
     Player player;
     Slug enemy;
     Thread gameThread;
     Random rand = new Random();
+    double mouseX = mouseMove.getX(mouseMove);
+    double mouseY = mouseMove.getY(mouseMove);
 
     //Player's settings. 
     int playerX = 20;
     int playerY = 20;
     int playerSpeed = 4;
-    double angle = 0;
+    double angle = Math.atan2(mouseY - (playerY + tileSize / 2), mouseX - (playerX + tileSize / 2));
 
     //Enemy position and speed
     int enemyX = screenWidth;
@@ -46,10 +49,13 @@ public class Panel extends JPanel implements Runnable {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true); //If set to true, all the drawings from this component will be done in an offscreen painting buffer. Enabling this can improve the game's rendering performance.
+        this.addMouseListener(mouseMove);
+        this.addMouseMotionListener(mouseMove);
         this.addKeyListener(keyH);
+
         this.setFocusable(true);
 
-        player = new Player(playerX, playerY, tileSize, playerSpeed, keyH);
+        player = new Player(playerX, playerY, tileSize, playerSpeed, keyH, mouseMove);
         enemy = new Slug(enemyX, enemyY, tileSize, tileSize, enemySpeed);
 
         
@@ -58,7 +64,7 @@ public class Panel extends JPanel implements Runnable {
 
     public void startGameThread() {
         gameThread = new Thread(this);
-        gameThread.start(); // i do not like cats - cj frfrfrfrfr
+        gameThread.start(); 
     }
 
     @Override
