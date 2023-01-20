@@ -59,7 +59,7 @@ public class Panel extends JPanel implements Runnable {
         enemy = new Slug(enemyX, enemyY, tileSize, tileSize, enemySpeed);
 
         
-        System.out.println(enemyY);
+        System.out.println(angle);
     }
 
     public void startGameThread() {
@@ -108,8 +108,8 @@ public class Panel extends JPanel implements Runnable {
         Graphics2D playerGraphics = (Graphics2D) g;
         Graphics2D enemyGraphics = (Graphics2D) g;
 
-        player.draw(playerGraphics);
-        enemy.draw(enemyGraphics, 2);
+        player.drawPlayer(playerGraphics);
+        enemy.drawSlug(enemyGraphics, 2);
 
         repaint();
     }

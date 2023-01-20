@@ -25,7 +25,7 @@ public class Player {
         this.mouseMove = mouseMove;
     }
 
-    public void draw(Graphics2D g2) {
+    public void drawPlayer(Graphics2D g2) {
         g2.setColor(purple);
         g2.fillRect(x, y, size, size);
         g2.rotate(angle);
@@ -50,10 +50,5 @@ public class Player {
             x += speed;
         }
     }
-    
-    // public void direction() {
-    //     //Calculate direction inside of this method.
-
-    // }
 
 }

@@ -32,8 +32,9 @@ public class Slug {
     */
 
     //Issue: cannot make rectangles draw in different, static y-positions. 
-    public void draw(Graphics2D g2, int num) {
+    public void drawSlug(Graphics2D g2, int num) {
         //Rectangle[] rects = new Rectangle[num];
+        //Make this stuff inside the panel class instead of the slug class. 
         ArrayList <Rectangle> rect = new ArrayList<Rectangle>();
 
         //For loop to create/draw num amount of enemies
