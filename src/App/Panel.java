@@ -31,8 +31,8 @@ public class Panel extends JPanel implements Runnable {
     Slug enemy;
     Thread gameThread;
     Random rand = new Random();
-    double mouseX = mouseMove.getX(mouseMove);
-    double mouseY = mouseMove.getY(mouseMove);
+    double mouseX = mouseMove.returnX();
+    double mouseY = mouseMove.returnY();
 
     //Player's settings. 
     int playerX = 20;
@@ -55,7 +55,7 @@ public class Panel extends JPanel implements Runnable {
 
         this.setFocusable(true);
 
-        player = new Player(playerX, playerY, tileSize, playerSpeed, keyH, mouseMove);
+        player = new Player(playerX, playerY, tileSize, playerSpeed, angle, keyH, mouseMove);
         enemy = new Slug(enemyX, enemyY, tileSize, tileSize, enemySpeed);
 
         

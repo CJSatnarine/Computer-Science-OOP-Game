@@ -15,12 +15,12 @@ public class Player {
     private KeyHandler k;
     private MouseMovement mouseMove;
 
-    public Player(int x, int y, int size, int speed, KeyHandler k, MouseMovement mouseMove) {
+    public Player(int x, int y, int size, int speed, double angle, KeyHandler k, MouseMovement mouseMove) {
         this.x = x;
         this.y = y;
         this.size = size;
         this.speed = speed;
-        // this.angle = angle;
+        this.angle = angle;
         this.k = k;
         this.mouseMove = mouseMove;
     }

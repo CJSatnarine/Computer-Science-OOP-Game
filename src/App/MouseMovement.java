@@ -59,4 +59,12 @@ public class MouseMovement implements MouseListener, MouseMotionListener {
         return mouseX;
     }
 
+    public double returnX() {
+        return mouseX;
+    }
+    
+    public double returnY() {
+        return mouseY;
+    }
+
 }
