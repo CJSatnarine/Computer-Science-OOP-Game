@@ -46,7 +46,7 @@ public class Panel extends JPanel implements Runnable {
     int enemySpeed = 2;
 
     Panel() {
-        angle = 0;
+        //angle = 0;
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true); //If set to true, all the drawings from this component will be done in an offscreen painting buffer. Enabling this can improve the game's rendering performance.

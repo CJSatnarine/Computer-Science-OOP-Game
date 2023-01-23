@@ -2,6 +2,7 @@ package App;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
 
 public class Player {
     
@@ -26,18 +27,22 @@ public class Player {
     }
 
     public void drawPlayer(Graphics2D g2) {
-        g2.rotate(-angle);
+        AffineTransform reset = g2.getTransform();
+
+        g2.rotate(angle, x + (size / 2), y+ (size / 2));
         g2.setColor(purple);
         g2.fillRect(x, y, size, size);
-        g2.rotate(angle);
+        g2.rotate(-angle, x + (size / 2), y+ (size / 2));
+        g2.setTransform(reset);
 
         //g2.dispose(); //causes the JFrame window to be destroyed and cleaned up by the operating system.
     }
 
     //Movement based on keyboard input. 
     public void move() {
-        angle = Math.atan2(mouseMove.returnX() - ((y + size) / 2), mouseMove.returnY() - ((x + size) / 2));
-        System.out.println(angle);
+        //angle = Math.atan2(mouseMove.returnX() - ((y + size) / 2), mouseMove.returnY() - ((x + size) / 2));
+        //angle = Math.atan2(mouseMove.returnX() - (y + (size / 2)), mouseMove.returnY() - (x + (size / 2)));
+        angle = Math.atan2(y - mouseMove.returnY(), x - mouseMove.returnX());
         
         if (k.upPressed) {
             y -= speed;
