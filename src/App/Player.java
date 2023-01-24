@@ -53,6 +53,8 @@ public class Player {
         Formula I found off StackOverflow for moving forward:
         x += speed + Math.sin(angle);
         y += speed + Math.cos(angle);
+
+        I flipped the x and y in the equation and got it to work. 
         */
 
         //The issue is that the player isn't moving forward, like in a Top Down Shooter Game. 
@@ -67,8 +69,8 @@ public class Player {
             // x += speed * Math.sin(angle);
             // y -= speed * Math.cos(angle);
 
-            x -= speed * Math.sin(angle);
-            y -= speed * Math.cos(angle);
+            y -= speed * Math.sin(angle);
+            x -= speed * Math.cos(angle);
         } 
         
         else if (k.downPressed) {
@@ -78,8 +80,8 @@ public class Player {
             //y += speed * Math.cos(angle);
             // y += speed * direction;
 
-            x += speed * Math.sin(angle);
-            y += speed * Math.cos(angle);
+            y += speed * Math.sin(angle);
+            x += speed * Math.cos(angle);
         } 
 
         else if (k.leftPressed) {
@@ -89,8 +91,8 @@ public class Player {
             //x -= speed * Math.sin(angle);
             // x -= speed * direction;
 
-             x -= speed * Math.sin(angle);
-             y += speed * Math.cos(angle);
+             y -= speed * Math.sin(angle);
+             x += speed * Math.cos(angle);
         }
         else if (k.rightPressed) {
             //x += speed; //Moves right when D is pressed. 
@@ -99,8 +101,8 @@ public class Player {
             //x += speed * Math.sin(angle);
             // x += speed * direction;
 
-            x += speed * Math.sin(angle);
-            y -= speed * Math.cos(angle);
+            y += speed * Math.sin(angle);
+            x -= speed * Math.cos(angle);
         }
     }
 }
