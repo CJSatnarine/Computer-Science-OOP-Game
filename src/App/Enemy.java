@@ -38,12 +38,12 @@ public class Enemy {
         ArrayList <Rectangle> rect = new ArrayList<Rectangle>();
 
         //For loop to create/draw num amount of enemies
-        for (int i = 0; i <= num; i++) {;
+        for (int i = 0; i <= num; i++) {
             rect.add(new Rectangle(x, y, width, height));
 
             g2.setColor(Color.WHITE);
             g2.fill(rect.get(i));
-            //y = rand.nextInt(10);
+            y = rand.nextInt(10);
         }
 
         //y = rand.nextInt(0, 600);
