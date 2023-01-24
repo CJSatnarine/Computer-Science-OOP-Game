@@ -7,7 +7,7 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Slug {
+public class Enemy {
 
 
     private int x;
@@ -17,7 +17,7 @@ public class Slug {
     private int speed;
     private Random rand = new Random();
 
-    public Slug(int x, int y, int width, int height, int speed) {
+    public Enemy(int x, int y, int width, int height, int speed) {
         this.x = x;
         this.y = y;
         this.width = width;
