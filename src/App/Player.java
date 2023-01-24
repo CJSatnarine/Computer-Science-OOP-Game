@@ -41,14 +41,12 @@ public class Player {
 
     //Movement based on keyboard input. 
     public void move() {
-        //angle = Math.atan2(mouseMove.returnX() - ((y + size) / 2), mouseMove.returnY() - ((x + size) / 2));
-        //angle = Math.atan2(mouseMove.returnX() - (y + (size / 2)), mouseMove.returnY() - (x + (size / 2)));
 
         //This formula seems to get the angles to rotate properly.
         angle = Math.atan2(y - mouseMove.returnY(), x - mouseMove.returnX());
 
-        //I don't even know.
-        direction = Math.pow(mouseMove.returnX(), 2) + Math.pow(mouseMove.returnY(), 2);
+        //Pythagorean's theorum implimentation.
+        direction = mouseMove.returnX() * mouseMove.returnX() + mouseMove.returnY() * mouseMove.returnY();
         direction = Math.sqrt(direction);
 
         /*
@@ -57,7 +55,7 @@ public class Player {
         y += speed + Math.cos(angle);
         */
 
-        
+        //The issue is that the player isn't moving forward, like in a Top Down Shooter Game. 
         if (k.upPressed) {
             //y -= speed; //Moves up when W is pressed. 
             //y -= angle;
@@ -91,8 +89,8 @@ public class Player {
             //x -= speed * Math.sin(angle);
             // x -= speed * direction;
 
-            x -= speed * Math.sin(angle);
-            y += speed * Math.cos(angle);
+             x -= speed * Math.sin(angle);
+             y += speed * Math.cos(angle);
         }
         else if (k.rightPressed) {
             //x += speed; //Moves right when D is pressed. 
@@ -105,5 +103,4 @@ public class Player {
             y -= speed * Math.cos(angle);
         }
     }
-
 }

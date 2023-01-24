@@ -108,8 +108,9 @@ public class Panel extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
 
+
         player.drawPlayer(g2d);
-        enemy.drawSlug(g2d, 2);
+        enemy.drawSlug(g2d, 7);
         g2d.dispose();
     }
 }

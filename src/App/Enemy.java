@@ -9,7 +9,6 @@ import java.util.Random;
 
 public class Enemy {
 
-
     private int x;
     private int y;
     private int width;
@@ -33,20 +32,24 @@ public class Enemy {
 
     //Issue: cannot make rectangles draw in different, static y-positions. 
     public void drawSlug(Graphics2D g2, int num) {
+        int newY = y;
         //Rectangle[] rects = new Rectangle[num];
-        //Make this stuff inside the panel class instead of the slug class. 
         ArrayList <Rectangle> rect = new ArrayList<Rectangle>();
 
         //For loop to create/draw num amount of enemies
         for (int i = 0; i <= num; i++) {
-            rect.add(new Rectangle(x, y, width, height));
+            rect.add(new Rectangle(x, newY, width, height));
 
             g2.setColor(Color.WHITE);
             g2.fill(rect.get(i));
-            y = rand.nextInt(10);
+            //y = rand.nextInt(10);
+
+            if (newY == y){
+                newY = rand.nextInt(600);
+            }
         }
 
-        //y = rand.nextInt(0, 600);
+        //y = rand.nextInt(600);
         //g2.dispose(); //causes the JFrame window to be destroyed and cleaned up by the operating system.
     }
 
