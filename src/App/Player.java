@@ -49,21 +49,9 @@ public class Player {
         direction = mouseMove.returnMouseX() * mouseMove.returnMouseX() + mouseMove.returnMouseY() * mouseMove.returnMouseY();
         direction = Math.sqrt(direction);
 
-        /*
-        Formula I found off StackOverflow for moving forward:
-        x += speed + Math.sin(angle);
-        y += speed + Math.cos(angle);
-
-        I flipped the x and y in the equation and got it to work. 
-        */
-
-        //The issue is that the player isn't moving forward, like in a Top Down Shooter Game. 
+        
         if (k.upPressed) {
             //y -= speed; //Moves up when W is pressed. 
-            //y -= angle;
-            //y -= direction;
-            //y -= speed * Math.cos(angle);
-            // y -= speed * direction;
 
             //This makes the rectangle revolve around the mouse cursor. It looks funny. 
             // x += speed * Math.sin(angle);
@@ -75,10 +63,6 @@ public class Player {
         
         else if (k.downPressed) {
             //y += speed; //Moves down when S is pressed. 
-            //y += angle;
-            //y += direction;
-            //y += speed * Math.cos(angle);
-            // y += speed * direction;
 
             y += speed * Math.sin(angle);
             x += speed * Math.cos(angle);
@@ -86,21 +70,12 @@ public class Player {
 
         else if (k.leftPressed) {
             //x -= speed; //Moves left when A is pressed. 
-            //x -= angle;
-            //x -= direction;
-            //x -= speed * Math.sin(angle);
-            // x -= speed * direction;
 
              y -= speed * Math.sin(angle);
              x += speed * Math.cos(angle);
         }
         else if (k.rightPressed) {
             //x += speed; //Moves right when D is pressed. 
-            //x += angle;
-            //y += direction;
-            //x += speed * Math.sin(angle);
-            // x += speed * direction;
-
             y += speed * Math.sin(angle);
             x -= speed * Math.cos(angle);
         }
