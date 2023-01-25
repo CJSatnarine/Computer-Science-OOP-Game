@@ -35,29 +35,36 @@ public class Enemy {
 
     //Issue: cannot make rectangles draw in different, static y-positions. 
     public void drawEnemy(Graphics2D g2, int num) {
-        int newY = y;
         ArrayList <Rectangle> rect = new ArrayList<Rectangle>();
-
+        int newY = y;
+        
         //For loop to create/draw num amount of enemies
         for (int i = 0; i <= num; i++) {
-            rect.add(new Rectangle(x, newY, width, height));
+            //rect.add(new Rectangle(x, y, width, height));
+            rect.add(createSprite(g2, x, newY, width, height));
 
             g2.setColor(Color.WHITE);
             g2.fill(rect.get(i));
 
             if (newY == y) {
                 newY = rand.nextInt(300) + height;
+                //y = newY;
             }
 
+            //y = newY;
+
             //Sets the colour of the rectangles to the background colour, because I couldn't "remove" them.
-            if (x < 300) {
+            if (x < 100) {
                 g2.setColor(Color.BLACK);
                 g2.fill(rect.get(i));
             }
         }
-
-        //y = rand.nextInt(600);
         //g2.dispose(); //causes the JFrame window to be destroyed and cleaned up by the operating system.
+    }
+
+    public Rectangle createSprite(Graphics2D g2, int spriteX, int spriteY, int spriteWidth, int spriteHeight) {
+        Rectangle r = new Rectangle(spriteX, spriteY, spriteWidth, spriteHeight);
+        return r;
     }
 
     /*

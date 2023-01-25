@@ -49,7 +49,7 @@ public class Player {
         direction = mouseMove.returnMouseX() * mouseMove.returnMouseX() + mouseMove.returnMouseY() * mouseMove.returnMouseY();
         direction = Math.sqrt(direction);
 
-        
+
         if (k.upPressed) {
             //y -= speed; //Moves up when W is pressed. 
 
