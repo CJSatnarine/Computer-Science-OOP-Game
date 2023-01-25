@@ -1,1 +1,1 @@
-Animal competition assignment. 
+OOP assignment for Computer Science class. 
