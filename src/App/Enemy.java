@@ -25,14 +25,12 @@ public class Enemy {
     }
 
     /*
-     * Method to draw a new rectangle and stores each rectangle to an array list.
+     * Method to draw a new rectangle and stores each rectangle in an array list.
      * 
-     * @param: 
-     * g2 gains access to the Graphics2D object.
-     * num is used to set the number of rectangles to draw. 
+     * @param g2 gains access to the Graphics2D object.
+     * @param num is used to set the number of rectangles to draw. 
      * 
-     * @return:
-     * void
+     * @return void
      */
 
     //Issue: cannot make rectangles draw in different, static y-positions. 
@@ -63,13 +61,9 @@ public class Enemy {
     }
 
     /*
-     * Moves the enemies. 
+     * Moves the enemies.  
      * 
-     * @param: 
-     * None. 
-     * 
-     * @return:
-     * Void. 
+     * @return void. 
      */
     public void move() {
         x -= speed;

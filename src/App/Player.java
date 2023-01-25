@@ -43,10 +43,10 @@ public class Player {
     public void move() {
 
         //This formula seems to get the angles to rotate properly.
-        angle = Math.atan2(y - mouseMove.returnY(), x - mouseMove.returnX());
+        angle = Math.atan2(y - mouseMove.returnMouseY(), x - mouseMove.returnMouseX());
 
         //Pythagorean's theorum implimentation.
-        direction = mouseMove.returnX() * mouseMove.returnX() + mouseMove.returnY() * mouseMove.returnY();
+        direction = mouseMove.returnMouseX() * mouseMove.returnMouseX() + mouseMove.returnMouseY() * mouseMove.returnMouseY();
         direction = Math.sqrt(direction);
 
         /*

@@ -31,14 +31,15 @@ public class Panel extends JPanel implements Runnable {
     Enemy enemy;
     Thread gameThread;
     Random rand = new Random();
-    double mouseX = mouseMove.returnX();
-    double mouseY = mouseMove.returnY();
+
+    double mouseX = mouseMove.returnMouseX();
+    double mouseY = mouseMove.returnMouseY();
 
     //Player's settings. 
     int playerX = 20;
     int playerY = 20;
     int playerSpeed = 4;
-    double angle = Math.atan2(mouseY - (playerY + tileSize / 2), mouseX - (playerX + tileSize / 2));
+    double angle;
 
     //Enemy position and speed
     int enemyX = screenWidth;
@@ -46,7 +47,7 @@ public class Panel extends JPanel implements Runnable {
     int enemySpeed = 2;
 
     Panel() {
-        //angle = 0;
+        angle = 0;
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true); //If set to true, all the drawings from this component will be done in an offscreen painting buffer. Enabling this can improve the game's rendering performance.
@@ -58,9 +59,6 @@ public class Panel extends JPanel implements Runnable {
 
         player = new Player(playerX, playerY, tileSize, playerSpeed, angle, keyH, mouseMove);
         enemy = new Enemy(enemyX, enemyY, tileSize, tileSize, enemySpeed);
-
-        
-        System.out.println(angle);
     }
 
     public void startGameThread() {
@@ -108,9 +106,8 @@ public class Panel extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
 
-
+        enemy.drawEnemy(g2d, 1);
         player.drawPlayer(g2d);
-        enemy.drawSlug(g2d, 7);
         g2d.dispose();
     }
 }
