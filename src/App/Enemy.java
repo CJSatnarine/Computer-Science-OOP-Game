@@ -25,15 +25,19 @@ public class Enemy {
     }
 
     /*
-    Description: Method to draw a new rectangle and stores each rectangle to an array list. 
-    @g2: Uses the Graphics2D
-    @num: is used to set the number of rectangles to draw 
-    */
+     * Method to draw a new rectangle and stores each rectangle to an array list.
+     * 
+     * @param: 
+     * g2 gains access to the Graphics2D object.
+     * num is used to set the number of rectangles to draw. 
+     * 
+     * @return:
+     * void
+     */
 
     //Issue: cannot make rectangles draw in different, static y-positions. 
-    public void drawSlug(Graphics2D g2, int num) {
+    public void drawEnemy(Graphics2D g2, int num) {
         int newY = y;
-        //Rectangle[] rects = new Rectangle[num];
         ArrayList <Rectangle> rect = new ArrayList<Rectangle>();
 
         //For loop to create/draw num amount of enemies
@@ -42,10 +46,15 @@ public class Enemy {
 
             g2.setColor(Color.WHITE);
             g2.fill(rect.get(i));
-            //y = rand.nextInt(10);
 
-            if (newY == y){
-                newY = rand.nextInt(600);
+            if (newY == y) {
+                newY = rand.nextInt(300) + height;
+            }
+
+            //Sets the colour of the rectangles to the background colour, because I couldn't "remove" them.
+            if (x < 300) {
+                g2.setColor(Color.BLACK);
+                g2.fill(rect.get(i));
             }
         }
 
@@ -53,10 +62,15 @@ public class Enemy {
         //g2.dispose(); //causes the JFrame window to be destroyed and cleaned up by the operating system.
     }
 
-    public void createSprite(Graphics2D g2, int spriteX, int spriteY, int spriteWidth, int spriteHeight) {
-        Rectangle r = new Rectangle(spriteX, spriteY, spriteWidth, spriteHeight);
-    }
-
+    /*
+     * Moves the enemies. 
+     * 
+     * @param: 
+     * None. 
+     * 
+     * @return:
+     * Void. 
+     */
     public void move() {
         x -= speed;
     }
