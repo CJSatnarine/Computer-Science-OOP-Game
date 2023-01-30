@@ -9,11 +9,11 @@ import java.util.Random;
 
 public class Enemy {
 
-    private int x;
-    private int y;
-    private int width;
-    private int height;
-    private int speed;
+    protected int x;
+    protected int y;
+    protected int width;
+    protected int height;
+    protected int speed;
     private Random rand = new Random();
 
     public Enemy(int x, int y, int width, int height, int speed) {
@@ -34,7 +34,7 @@ public class Enemy {
      */
 
     //Issue: cannot make rectangles draw in different, static y-positions. 
-    public void drawEnemy(Graphics2D g2, int num) {
+    public void draw(Graphics2D g2, int num) {
         ArrayList <Rectangle> rect = new ArrayList<Rectangle>();
         boolean isEnough = false;
         
@@ -63,8 +63,7 @@ public class Enemy {
     }
 
     public Rectangle createSprite(Graphics2D g2, int spriteX, int spriteY, int spriteWidth, int spriteHeight) {
-        Rectangle r = new Rectangle(spriteX, spriteY, spriteWidth, spriteHeight);
-        return r;
+        return new Rectangle(spriteX, spriteY, spriteWidth, spriteHeight);
     }
 
     /*

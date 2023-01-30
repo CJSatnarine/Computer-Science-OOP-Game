@@ -27,7 +27,15 @@ public class Player {
         this.mouseMove = mouseMove;
     }
 
-    public void drawPlayer(Graphics2D g2) {
+    public int getPlayerX() {
+        return x;
+    }
+
+    public int getPlayerY() {
+        return y;
+    }
+
+    public void draw(Graphics2D g2) {
         AffineTransform reset = g2.getTransform();
 
         g2.rotate(angle, x + (size / 2), y + (size / 2));
@@ -73,11 +81,15 @@ public class Player {
 
              y -= speed * Math.sin(angle);
              x += speed * Math.cos(angle);
+
+            //angle++;
         }
         else if (k.rightPressed) {
             //x += speed; //Moves right when D is pressed. 
             y += speed * Math.sin(angle);
             x -= speed * Math.cos(angle);
+
+            //angle--;
         }
     }
 }

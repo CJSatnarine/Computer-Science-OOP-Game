@@ -12,39 +12,45 @@ import java.util.Random;
 public class Panel extends JPanel implements Runnable {
 
     //Screen settings.
-    final int originalTileSize = 16;
-    final int scale = 3;
+    private final int originalTileSize = 16;
+    private final int scale = 3;
 
-    final int tileSize = originalTileSize * scale;
+    private final int tileSize = originalTileSize * scale;
 
-    final int maxScreenCol = 16;
-    final int maxScreenRow = 12;
-    final int screenWidth = tileSize * maxScreenCol;
-    final int screenHeight = tileSize * maxScreenRow;
+    private final int maxScreenCol = 16;
+    private final int maxScreenRow = 12;
+    private final int screenWidth = tileSize * maxScreenCol;
+    private final int screenHeight = tileSize * maxScreenRow;
 
     //FPS
-    int FPS = 60;
+    private int FPS = 60;
 
-    KeyHandler keyH = new KeyHandler();
-    MouseMovement mouseMove = new MouseMovement();
-    Player player;
-    Enemy enemy;
-    Thread gameThread;
-    Random rand = new Random();
+    private KeyHandler keyH = new KeyHandler();
+    private MouseMovement mouseMove = new MouseMovement();
+    private Player player;
+    private Enemy enemy;
+    private AdvancedEnemy advancedEnemy;
+    private Thread gameThread;
+    private Random rand = new Random();
 
-    double mouseX = mouseMove.returnMouseX();
-    double mouseY = mouseMove.returnMouseY();
+    private double mouseX = mouseMove.returnMouseX();
+    private double mouseY = mouseMove.returnMouseY();
 
     //Player's settings. 
-    int playerX = 20;
-    int playerY = 20;
-    int playerSpeed = 4;
-    double angle;
+    public int playerX = 20;
+    public int playerY = 20;
+    private int playerSpeed = 4;
+    private double angle;
 
     //Enemy position and speed
-    int enemyX = screenWidth;
-    int enemyY = rand.nextInt(screenHeight - tileSize);
-    int enemySpeed = 2;
+    private int enemyX = screenWidth;
+    private int enemyY = rand.nextInt(screenHeight - tileSize);
+    private int enemySpeed = 2;
+
+    //Advanced enemy position and speed
+    private int advancedEnemyX = screenWidth;
+    private int advancedEnemyY = rand.nextInt(screenHeight - tileSize);
+    private int advancedEnemySpeed = 4;
 
     Panel() {
         angle = 0;
@@ -59,6 +65,8 @@ public class Panel extends JPanel implements Runnable {
 
         player = new Player(playerX, playerY, tileSize, playerSpeed, angle, keyH, mouseMove);
         enemy = new Enemy(enemyX, enemyY, tileSize, tileSize, enemySpeed);
+        advancedEnemy = new AdvancedEnemy(advancedEnemyX, advancedEnemyY, tileSize, tileSize, advancedEnemySpeed);
+
     }
 
     public void startGameThread() {
@@ -106,8 +114,9 @@ public class Panel extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
 
-        enemy.drawEnemy(g2d, 1);
-        player.drawPlayer(g2d);
+        advancedEnemy.draw(g2d);
+        enemy.draw(g2d, 1);
+        player.draw(g2d);
         g2d.dispose();
     }
 }
