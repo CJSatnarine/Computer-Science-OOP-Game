@@ -2,7 +2,6 @@ package App;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 
 import java.util.Random;
 
@@ -17,7 +16,7 @@ public class AdvancedEnemy extends Enemy {
 
     public void draw(Graphics2D g2) {
         g2.setColor(Color.RED);
-        g2.fillRect(x - 50, y + 50, width, height);
+        g2.fillRect(x, y, width, height);
     }
 
     public void move(Player player) {

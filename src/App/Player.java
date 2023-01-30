@@ -81,15 +81,11 @@ public class Player {
 
              y -= speed * Math.sin(angle);
              x += speed * Math.cos(angle);
-
-            //angle++;
         }
         else if (k.rightPressed) {
             //x += speed; //Moves right when D is pressed. 
             y += speed * Math.sin(angle);
             x -= speed * Math.cos(angle);
-
-            //angle--;
         }
     }
 }
