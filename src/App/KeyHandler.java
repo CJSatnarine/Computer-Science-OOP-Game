@@ -15,7 +15,7 @@ public class KeyHandler implements KeyListener {
     }
 
     /*
-     * 
+     * Tells the program what to do when a particular key has been pressed.  
      */
     @Override
     public void keyPressed(KeyEvent e) { 
@@ -41,6 +41,10 @@ public class KeyHandler implements KeyListener {
             rightPressed = true;
         }
     }
+
+    /*
+     * Tells the program what to do when a particular key has been released. 
+     */
 
     @Override
     public void keyReleased(KeyEvent e) {

@@ -5,10 +5,13 @@ import javax.swing.JFrame;
 public class GUI extends JFrame {
     Panel panel;
 
+    /*
+     * Creates the Graphical User Interface.
+     */
     GUI() {
         panel = new Panel();
 
-        this.setTitle("Slugbury: Animal Edition");
+        this.setTitle("OOP Assignment");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.add(panel);

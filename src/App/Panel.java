@@ -67,6 +67,7 @@ public class Panel extends JPanel implements Runnable {
 
         angle = 0;
 
+        //Creates an arraylist of enemies.
         enemyList = new ArrayList<Enemy>();
         for(int i = 0; i < numOfEnemies; i++) {
           enemyList.add(new Enemy(enemyX, enemyY, tileSize, tileSize, enemySpeed));
@@ -74,6 +75,7 @@ public class Panel extends JPanel implements Runnable {
           enemyY = rand.nextInt(screenHeight - tileSize);
         }
 
+        //Creates an arraylist of advanced enemies. 
         advancedEnemyList = new ArrayList<AdvancedEnemy>();
         for(int i = 0; i < numOfAdvancedEnemies; i++) {
             advancedEnemyList.add(new AdvancedEnemy(advancedEnemyX, advancedEnemyY, tileSize, tileSize, advancedEnemySpeed));
@@ -82,8 +84,6 @@ public class Panel extends JPanel implements Runnable {
         }
 
         player = new Player(playerX, playerY, tileSize, playerSpeed, angle, keyH, mouseMove);
-        //enemy = new Enemy(enemyX, enemyY, tileSize, tileSize, enemySpeed);
-        //advancedEnemy = new AdvancedEnemy(advancedEnemyX, advancedEnemyY, tileSize, tileSize, advancedEnemySpeed);
     }
 
     public void startGameThread() {
