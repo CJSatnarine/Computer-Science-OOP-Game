@@ -34,7 +34,7 @@ public class Enemy {
      */
 
     //Issue: cannot make rectangles draw in different, static y-positions. 
-    public void draw(Graphics2D g2, int num) {
+    public void draw(Graphics2D g2) {
         ArrayList <Rectangle> rect = new ArrayList<Rectangle>();
         
         //For loop to create/draw num amount of enemies

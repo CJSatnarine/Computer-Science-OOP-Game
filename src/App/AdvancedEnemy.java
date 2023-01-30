@@ -17,6 +17,10 @@ public class AdvancedEnemy extends Enemy {
     public void draw(Graphics2D g2) {
         g2.setColor(Color.RED);
         g2.fillRect(x, y, width, height);
+
+        if (x < 200) {
+            disappear(g2);
+        }
     }
 
     public void move(Player player) {
