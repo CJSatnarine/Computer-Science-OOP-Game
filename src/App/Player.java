@@ -15,7 +15,6 @@ public class Player {
     private int speed;
     private KeyHandler k;
     private MouseMovement mouseMove;
-    private double direction; 
 
     public Player(int x, int y, int size, int speed, double angle, KeyHandler k, MouseMovement mouseMove) {
         this.x = x;
@@ -50,13 +49,8 @@ public class Player {
     //Movement based on keyboard input. 
     public void move() {
 
-        //This formula seems to get the angles to rotate properly.
+        //Formula to make the rectangle rotate properly.
         angle = Math.atan2(y - mouseMove.returnMouseY(), x - mouseMove.returnMouseX());
-
-        //Pythagorean's theorum implimentation.
-        direction = mouseMove.returnMouseX() * mouseMove.returnMouseX() + mouseMove.returnMouseY() * mouseMove.returnMouseY();
-        direction = Math.sqrt(direction);
-
 
         if (k.upPressed) {
             //y -= speed; //Moves up when W is pressed. 
@@ -84,6 +78,7 @@ public class Player {
         }
         else if (k.rightPressed) {
             //x += speed; //Moves right when D is pressed. 
+            
             y += speed * Math.sin(angle);
             x -= speed * Math.cos(angle);
         }

@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Panel extends JPanel implements Runnable {
@@ -25,35 +26,36 @@ public class Panel extends JPanel implements Runnable {
     //FPS
     private int FPS = 60;
 
+    //Other stuff
+    private AdvancedEnemy advancedEnemy;
+    private ArrayList<Enemy> enemyList;
+    private ArrayList<AdvancedEnemy> advancedEnemyList;
+    private Enemy enemy;
     private KeyHandler keyH = new KeyHandler();
     private MouseMovement mouseMove = new MouseMovement();
     private Player player;
-    private Enemy enemy;
-    private AdvancedEnemy advancedEnemy;
-    private Thread gameThread;
     private Random rand = new Random();
+    private Thread gameThread;
 
-    private double mouseX = mouseMove.returnMouseX();
-    private double mouseY = mouseMove.returnMouseY();
-
-    //Player's settings. 
+    //Player's variables. 
     public int playerX = 20;
     public int playerY = 20;
     private int playerSpeed = 4;
     private double angle;
 
-    //Enemy position and speed
+    //Enemy variables.
     private int enemyX = rand.nextInt(screenWidth - tileSize);
     private int enemyY = rand.nextInt(screenHeight - tileSize);
-    private int enemySpeed = 2;
+    private int enemySpeed = 3;
+    private int numOfEnemies = 20;
 
-    //Advanced enemy position and speed
+    //Advanced enemy variables.
     private int advancedEnemyX = rand.nextInt(screenWidth - tileSize);;
     private int advancedEnemyY = rand.nextInt(screenHeight - tileSize);
     private int advancedEnemySpeed = 2;
+    private int numOfAdvancedEnemies = 10;
 
     Panel() {
-        angle = 0;
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true); //If set to true, all the drawings from this component will be done in an offscreen painting buffer. Enabling this can improve the game's rendering performance.
@@ -63,10 +65,25 @@ public class Panel extends JPanel implements Runnable {
 
         this.setFocusable(true);
 
-        player = new Player(playerX, playerY, tileSize, playerSpeed, angle, keyH, mouseMove);
-        enemy = new Enemy(enemyX, enemyY, tileSize, tileSize, enemySpeed);
-        advancedEnemy = new AdvancedEnemy(advancedEnemyX, advancedEnemyY, tileSize, tileSize, advancedEnemySpeed);
+        angle = 0;
 
+        enemyList = new ArrayList<Enemy>();
+        for(int i = 0; i < numOfEnemies; i++) {
+          enemyList.add(new Enemy(enemyX, enemyY, tileSize, tileSize, enemySpeed));
+          enemyX = rand.nextInt(screenWidth - tileSize);
+          enemyY = rand.nextInt(screenHeight - tileSize);
+        }
+
+        advancedEnemyList = new ArrayList<AdvancedEnemy>();
+        for(int i = 0; i < numOfAdvancedEnemies; i++) {
+            advancedEnemyList.add(new AdvancedEnemy(advancedEnemyX, advancedEnemyY, tileSize, tileSize, advancedEnemySpeed));
+            advancedEnemyX = rand.nextInt(screenWidth - tileSize);
+            advancedEnemyY = rand.nextInt(screenHeight - tileSize);
+        }
+
+        player = new Player(playerX, playerY, tileSize, playerSpeed, angle, keyH, mouseMove);
+        //enemy = new Enemy(enemyX, enemyY, tileSize, tileSize, enemySpeed);
+        //advancedEnemy = new AdvancedEnemy(advancedEnemyX, advancedEnemyY, tileSize, tileSize, advancedEnemySpeed);
     }
 
     public void startGameThread() {
@@ -105,8 +122,16 @@ public class Panel extends JPanel implements Runnable {
 
     public void update() {
         player.move();
-        enemy.move();
-        advancedEnemy.move(player);
+
+        //Moves each advanced enemy in the array list. 
+        for (int i = 0; i < numOfAdvancedEnemies; i++){
+            advancedEnemyList.get(i).move(player);
+        }
+
+        //Moves each enemy in the array list. 
+        for (int i = 0; i < numOfEnemies; i++){
+            enemyList.get(i).move();
+        }
     }
 
     //Standard method to draw things on JPanel
@@ -115,8 +140,16 @@ public class Panel extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
 
-        advancedEnemy.draw(g2d);
-        enemy.draw(g2d);
+        //Draws each advanced enemy in the array list.
+        for (int i = 0; i < numOfAdvancedEnemies; i++){
+            advancedEnemyList.get(i).draw(g2d);
+        }
+
+        //Draws each enemy in the array list.
+        for (int i = 0; i < numOfEnemies; i++){
+            enemyList.get(i).draw(g2d);
+        }
+
         player.draw(g2d);
         g2d.dispose();
     }
