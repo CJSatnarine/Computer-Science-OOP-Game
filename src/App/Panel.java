@@ -106,6 +106,7 @@ public class Panel extends JPanel implements Runnable {
     public void update() {
         player.move();
         enemy.move();
+        advancedEnemy.move(player);
     }
 
     //Standard method to draw things on JPanel

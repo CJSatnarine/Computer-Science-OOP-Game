@@ -9,12 +9,6 @@ import java.util.Random;
 public class AdvancedEnemy extends Enemy {
     private Random random = new Random();
     private double angle;
-    // private Player p; //IThis is null.  
-
-    // //I need to somehow get playerX and playerY positions. 
-    // private int playerXPos = p.getPlayerX();
-    // private int playerYPos = p.getPlayerY();
-
 
     public AdvancedEnemy(int x, int y, int width, int height, int speed) {
         super(x, y, width, height, speed);
@@ -26,10 +20,13 @@ public class AdvancedEnemy extends Enemy {
         g2.fillRect(x - 50, y + 50, width, height);
     }
 
-    // public void move() {
-    //     angle = Math.atan2(y - playerYPos, x - playerXPos);
-        
-    //     y -= speed * Math.sin(angle);
-    //     x -= speed * Math.cos(angle);
-    // }
+    public void move(Player player) {
+        int playerX = player.getPlayerX();
+        int playerY = player.getPlayerY();
+
+        angle = Math.atan2(y - playerY, x - playerX);
+
+        y -= speed * Math.sin(angle);
+        x -= speed * Math.cos(angle);
+      }
 }
