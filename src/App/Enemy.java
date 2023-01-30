@@ -3,20 +3,10 @@ package App;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-public class Enemy {
-
-    protected int x;
-    protected int y;
-    protected int width;
-    protected int height;
-    protected int speed;
+public class Enemy extends Entity{
 
     public Enemy(int x, int y, int width, int height, int speed) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.speed = speed;
+        super(x, y, width, height, speed);
     }
 
     /*

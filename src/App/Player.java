@@ -4,34 +4,22 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 
-public class Player {
+public class Player extends Entity{
     
     //Variables
     private Color purple = new Color(123, 50, 150);
-    private double angle;
-    private int x;
-    private int y;
     private int size;
-    private int speed;
+    private double angle;
+
     private KeyHandler k;
     private MouseMovement mouseMove;
 
     public Player(int x, int y, int size, int speed, double angle, KeyHandler k, MouseMovement mouseMove) {
-        this.x = x;
-        this.y = y;
+        super(x, y, size, size, speed);
         this.size = size;
-        this.speed = speed;
         this.angle = angle;
         this.k = k;
         this.mouseMove = mouseMove;
-    }
-
-    public int getPlayerX() {
-        return x;
-    }
-
-    public int getPlayerY() {
-        return y;
     }
 
     public void draw(Graphics2D g2) {

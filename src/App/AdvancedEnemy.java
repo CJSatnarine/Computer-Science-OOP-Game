@@ -30,8 +30,8 @@ public class AdvancedEnemy extends Enemy {
     }
 
     public void move(Player player) {
-        int playerX = player.getPlayerX();
-        int playerY = player.getPlayerY();
+        int playerX = player.getX();
+        int playerY = player.getY();
 
         angle = Math.atan2(y - playerY, x - playerX);
 

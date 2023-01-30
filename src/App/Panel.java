@@ -27,10 +27,9 @@ public class Panel extends JPanel implements Runnable {
     private int FPS = 60;
 
     //Other stuff
-    private AdvancedEnemy advancedEnemy;
     private ArrayList<Enemy> enemyList;
     private ArrayList<AdvancedEnemy> advancedEnemyList;
-    private Enemy enemy;
+    private ArrayList<Projectiles> balls;
     private KeyHandler keyH = new KeyHandler();
     private MouseMovement mouseMove = new MouseMovement();
     private Player player;
@@ -43,6 +42,10 @@ public class Panel extends JPanel implements Runnable {
     private int playerSpeed = 4;
     private double angle;
 
+    //Projectile variables.
+    public int projectileX = playerX;
+    public int projectileY = playerY;
+
     //Enemy variables.
     private int enemyX = rand.nextInt(screenWidth - tileSize);
     private int enemyY = rand.nextInt(screenHeight - tileSize);
@@ -53,7 +56,7 @@ public class Panel extends JPanel implements Runnable {
     private int advancedEnemyX = rand.nextInt(screenWidth - tileSize);;
     private int advancedEnemyY = rand.nextInt(screenHeight - tileSize);
     private int advancedEnemySpeed = 2;
-    private int numOfAdvancedEnemies = 10;
+    private int numOfAdvancedEnemies = 100;
 
     Panel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
