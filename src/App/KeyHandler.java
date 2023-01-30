@@ -8,6 +8,7 @@ public class KeyHandler implements KeyListener {
     public boolean downPressed;
     public boolean leftPressed;
     public boolean rightPressed;
+    public boolean spacePressed;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -15,7 +16,11 @@ public class KeyHandler implements KeyListener {
     }
 
     /*
-     * Tells the program what to do when a particular key has been pressed.  
+     * Tells the program what to do when a particular key has been pressed. 
+     * 
+     * @param e gets the key event.
+     * 
+     * @return void 
      */
     @Override
     public void keyPressed(KeyEvent e) { 
@@ -40,10 +45,18 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_D) {
             rightPressed = true;
         }
+
+        if (code == KeyEvent.VK_SPACE) {
+            spacePressed = true;
+        }
     }
 
     /*
      * Tells the program what to do when a particular key has been released. 
+     * 
+     * @param e gets the key event.
+     * 
+     * @return void
      */
 
     @Override
@@ -68,6 +81,10 @@ public class KeyHandler implements KeyListener {
         //D Key released.
         if (code == KeyEvent.VK_D) {
             rightPressed = false;
+        }
+
+        if (code == KeyEvent.VK_SPACE) {
+            spacePressed = false;
         }
     }
 }

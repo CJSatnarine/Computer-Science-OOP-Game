@@ -45,6 +45,11 @@ public class Panel extends JPanel implements Runnable {
     //Projectile variables.
     public int projectileX = playerX;
     public int projectileY = playerY;
+    public int projectileWidth = 30;
+    public int projectileHeight = 30;
+    public int projectileSpeed = 2;
+    public int projectileCount = 0;
+    
 
     //Enemy variables.
     private int enemyX = rand.nextInt(screenWidth - tileSize);
@@ -56,7 +61,7 @@ public class Panel extends JPanel implements Runnable {
     private int advancedEnemyX = rand.nextInt(screenWidth - tileSize);;
     private int advancedEnemyY = rand.nextInt(screenHeight - tileSize);
     private int advancedEnemySpeed = 2;
-    private int numOfAdvancedEnemies = 100;
+    private int numOfAdvancedEnemies = 3;
 
     Panel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -86,7 +91,16 @@ public class Panel extends JPanel implements Runnable {
             advancedEnemyY = rand.nextInt(screenHeight - tileSize);
         }
 
+        balls = new ArrayList<Projectiles>();
+        for (int i = 0; i < projectileCount; i++){
+            if (keyH.spacePressed){
+                projectileCount++;
+                balls.add(new Projectiles(projectileX, projectileY, projectileWidth, projectileHeight, projectileSpeed));
+            }
+        }
+
         player = new Player(playerX, playerY, tileSize, playerSpeed, angle, keyH, mouseMove);
+        //balls = new Projectiles(projectileX, projectileY, projectileWidth, projectileHeight, projectileSpeed);
     }
 
     public void startGameThread() {
@@ -125,6 +139,10 @@ public class Panel extends JPanel implements Runnable {
 
     public void update() {
         player.move();
+        
+        for (int i = 0; i < projectileCount; i++){
+            balls.get(i).move();
+        }
 
         //Moves each advanced enemy in the array list. 
         for (int i = 0; i < numOfAdvancedEnemies; i++){
@@ -142,6 +160,10 @@ public class Panel extends JPanel implements Runnable {
     public void paintComponent (Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
+
+        for (int i = 0; i < projectileCount; i++){
+            balls.get(i).draw(g2d);
+        }
 
         //Draws each advanced enemy in the array list.
         for (int i = 0; i < numOfAdvancedEnemies; i++){

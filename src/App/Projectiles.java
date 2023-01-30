@@ -7,7 +7,6 @@ public class Projectiles extends Entity{
 
     public Projectiles(int x, int y, int width, int height, int speed) {
         super(x, y, width, height, speed);
-
     }
 
     @Override
@@ -16,8 +15,7 @@ public class Projectiles extends Entity{
         g2.fillOval(x, y, width, height);
     }
 
-    @Override
     public void move(){
-        
+        y += speed;
     }
 }
