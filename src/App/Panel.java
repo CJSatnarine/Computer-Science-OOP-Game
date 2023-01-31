@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 import javax.swing.JPanel;
 
@@ -132,8 +133,8 @@ public class Panel extends JPanel implements Runnable {
     public void update() {
         player.move();
 
-        if(keyH.spacePressed && orbList.size() <= 10) {
-            orbList.add(new Projectiles(player.getX(), player.getY(), projectileWidth, projectileHeight, projectileSpeed, mouseMove));
+        if(keyH.spacePressed && orbList.size() <= 100) {
+            orbList.add(new Projectiles((int) player.getX(), (int) player.getY(), projectileWidth, projectileHeight, projectileSpeed, mouseMove));
             projectileCount++;
         }
         
@@ -151,7 +152,7 @@ public class Panel extends JPanel implements Runnable {
             enemyList.get(i).move();
         }
 
-        if(orbList.size() > 10) {
+        if(orbList.size() > 100) {
             orbList.remove(0);
             projectileCount--;
         }
@@ -170,6 +171,9 @@ public class Panel extends JPanel implements Runnable {
         //Draws each advanced enemy in the array list.
         for (int i = 0; i < numOfAdvancedEnemies; i++){
             advancedEnemyList.get(i).draw(g2d);
+            if (advancedEnemyList.get(i).playerCollisionCheck(player)){
+                System.out.println("touched player");
+            }
         }
 
         //Draws each enemy in the array list.
