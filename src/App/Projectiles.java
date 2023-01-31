@@ -11,7 +11,7 @@ public class Projectiles extends Entity{
 
     @Override
     public void draw(Graphics2D g2) {
-        g2.setColor(Color.WHITE);
+        g2.setColor(new Color(118, 52, 35));
         g2.fillOval(x, y, width, height);
     }
 

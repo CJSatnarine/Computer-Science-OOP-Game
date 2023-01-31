@@ -43,12 +43,10 @@ public class Panel extends JPanel implements Runnable {
     private int playerSpeed = 4;
 
     //Projectile variables.
-    public int projectileX = playerX;
-    public int projectileY = playerY;
     public int projectileWidth = 30;
     public int projectileHeight = 30;
     public int projectileSpeed = 2;
-    public int projectileCount;
+    public int projectileCount = 0;
     
 
     //Enemy variables.
@@ -94,11 +92,6 @@ public class Panel extends JPanel implements Runnable {
         //Creates an arraylist of balls.
         orbList = new ArrayList<Projectiles>();
 
-            for (int i = 0; i < projectileCount; i++){
-                orbList.add(new Projectiles(projectileX, projectileY, projectileWidth, projectileHeight, projectileSpeed));
-                System.out.println(projectileCount);
-            }
-
         player = new Player(playerX, playerY, tileSize, playerSpeed, angle, keyH, mouseMove);
     }
 
@@ -138,6 +131,11 @@ public class Panel extends JPanel implements Runnable {
 
     public void update() {
         player.move();
+
+        if(keyH.spacePressed && orbList.size() <= 10) {
+            orbList.add(new Projectiles(player.getX(), player.getY(), projectileWidth, projectileHeight, projectileSpeed));
+            projectileCount++;
+        }
         
         for (int i = 0; i < projectileCount; i++){
             orbList.get(i).move();
@@ -151,6 +149,11 @@ public class Panel extends JPanel implements Runnable {
         //Moves each enemy in the array list. 
         for (int i = 0; i < numOfEnemies; i++){
             enemyList.get(i).move();
+        }
+
+        if(orbList.size() > 10) {
+            orbList.remove(0);
+            projectileCount--;
         }
     }
 
