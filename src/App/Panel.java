@@ -133,7 +133,7 @@ public class Panel extends JPanel implements Runnable {
         player.move();
 
         if(keyH.spacePressed && orbList.size() <= 10) {
-            orbList.add(new Projectiles(player.getX(), player.getY(), projectileWidth, projectileHeight, projectileSpeed));
+            orbList.add(new Projectiles(player.getX(), player.getY(), projectileWidth, projectileHeight, projectileSpeed, mouseMove));
             projectileCount++;
         }
         
