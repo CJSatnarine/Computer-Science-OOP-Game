@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class Projectiles extends Entity{
-    private Color brown = new Color(118, 52, 35);
+    //private Color brown = new Color(118, 52, 35);
     private double angle;
     private MouseMovement m;
 
@@ -15,7 +15,7 @@ public class Projectiles extends Entity{
 
     @Override
     public void draw(Graphics2D g2) {
-        g2.setColor(brown);
+        g2.setColor(Color.white);
         g2.fillOval(x, y, width, height);
     }
 
@@ -23,7 +23,7 @@ public class Projectiles extends Entity{
         double mouseX = m.returnMouseX();
         double mouseY = m.returnMouseY();
 
-        angle = Math.atan2(y - mouseX, x - mouseX);
+        angle = Math.atan2(y - mouseY, x - mouseX);
 
         y -= speed * Math.sin(angle);
         x -= speed * Math.cos(angle);
