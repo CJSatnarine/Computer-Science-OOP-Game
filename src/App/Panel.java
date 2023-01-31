@@ -29,7 +29,7 @@ public class Panel extends JPanel implements Runnable {
     //Other stuff
     private ArrayList<Enemy> enemyList;
     private ArrayList<AdvancedEnemy> advancedEnemyList;
-    private ArrayList<Projectiles> balls;
+    private ArrayList<Projectiles> orbList;
     private KeyHandler keyH = new KeyHandler();
     private MouseMovement mouseMove = new MouseMovement();
     private Player player;
@@ -37,10 +37,10 @@ public class Panel extends JPanel implements Runnable {
     private Thread gameThread;
 
     //Player's variables. 
+    private double angle;
     public int playerX = 20;
     public int playerY = 20;
     private int playerSpeed = 4;
-    private double angle;
 
     //Projectile variables.
     public int projectileX = playerX;
@@ -48,7 +48,7 @@ public class Panel extends JPanel implements Runnable {
     public int projectileWidth = 30;
     public int projectileHeight = 30;
     public int projectileSpeed = 2;
-    public int projectileCount = 0;
+    public int projectileCount;
     
 
     //Enemy variables.
@@ -70,9 +70,9 @@ public class Panel extends JPanel implements Runnable {
         this.addMouseListener(mouseMove);
         this.addMouseMotionListener(mouseMove);
         this.addKeyListener(keyH);
-
         this.setFocusable(true);
 
+        //Sets the angle.
         angle = 0;
 
         //Creates an arraylist of enemies.
@@ -91,16 +91,15 @@ public class Panel extends JPanel implements Runnable {
             advancedEnemyY = rand.nextInt(screenHeight - tileSize);
         }
 
-        balls = new ArrayList<Projectiles>();
-        for (int i = 0; i < projectileCount; i++){
-            if (keyH.spacePressed){
-                projectileCount++;
-                balls.add(new Projectiles(projectileX, projectileY, projectileWidth, projectileHeight, projectileSpeed));
+        //Creates an arraylist of balls.
+        orbList = new ArrayList<Projectiles>();
+
+            for (int i = 0; i < projectileCount; i++){
+                orbList.add(new Projectiles(projectileX, projectileY, projectileWidth, projectileHeight, projectileSpeed));
+                System.out.println(projectileCount);
             }
-        }
 
         player = new Player(playerX, playerY, tileSize, playerSpeed, angle, keyH, mouseMove);
-        //balls = new Projectiles(projectileX, projectileY, projectileWidth, projectileHeight, projectileSpeed);
     }
 
     public void startGameThread() {
@@ -141,7 +140,7 @@ public class Panel extends JPanel implements Runnable {
         player.move();
         
         for (int i = 0; i < projectileCount; i++){
-            balls.get(i).move();
+            orbList.get(i).move();
         }
 
         //Moves each advanced enemy in the array list. 
@@ -162,7 +161,7 @@ public class Panel extends JPanel implements Runnable {
         Graphics2D g2d = (Graphics2D) g;
 
         for (int i = 0; i < projectileCount; i++){
-            balls.get(i).draw(g2d);
+            orbList.get(i).draw(g2d);
         }
 
         //Draws each advanced enemy in the array list.
@@ -178,4 +177,4 @@ public class Panel extends JPanel implements Runnable {
         player.draw(g2d);
         g2d.dispose();
     }
-}
+} 
