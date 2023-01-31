@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.util.Random;
 
 public class AdvancedEnemy extends Enemy {
+    //Variables
     private Random random = new Random();
     private double angle;
 
@@ -15,6 +16,7 @@ public class AdvancedEnemy extends Enemy {
         y = random.nextInt(600 - height);
     }
 
+    //Draws the advanced enemy. 
     @Override
     public void draw(Graphics2D g2) {
         AffineTransform reset = g2.getTransform();
@@ -24,11 +26,9 @@ public class AdvancedEnemy extends Enemy {
         g2.rotate(-angle, x + (width / 2), y + (height / 2));
         g2.setTransform(reset);
 
-        // if (x < 200) {
-        //     disappear(g2);
-        // }
     }
 
+    //Moves the advanced enemy towards the player's position, making it following the player. 
     public void move(Player player) {
         int playerX = (int) player.getX();
         int playerY = (int) player.getY();

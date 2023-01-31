@@ -2,9 +2,9 @@ package App;
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import java.util.concurrent.atomic.DoubleAdder;
 
 public abstract class Entity {
+    //Entity variables.
     protected int x;
     protected int y;
     protected int width;
@@ -51,14 +51,6 @@ public abstract class Entity {
         this.speed = speed;
     }
 
+    //Draws the entity;
     public abstract void draw(Graphics2D g2);
-
-    // public boolean playerCollisionCheck(Player player) {
-    //     hitBox = new Rectangle();
-    //     if(hitBox.intersects(player)) {
-    //         return true;
-    //     }
-    //     return false;
-    // }
-
 }

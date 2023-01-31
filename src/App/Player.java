@@ -38,8 +38,9 @@ public class Player extends Entity{
     public void move() {
 
         //Formula to make the rectangle rotate properly.
-        angle = Math.atan2(y - mouseMove.returnMouseY(), x - mouseMove.returnMouseX());
+        angle = Math.atan2(y - mouseMove.getMouseY(), x - mouseMove.getMouseX());
 
+        //Code to go forwards.
         if (k.upPressed) {
             //y -= speed; //Moves up when W is pressed. 
 
@@ -51,6 +52,7 @@ public class Player extends Entity{
             x -= speed * Math.cos(angle);
         } 
         
+        //Code to go backwards.
         else if (k.downPressed) {
             //y += speed; //Moves down when S is pressed. 
 
@@ -58,12 +60,15 @@ public class Player extends Entity{
             x += speed * Math.cos(angle);
         } 
 
+        //Code to go the left.
         else if (k.leftPressed) {
             //x -= speed; //Moves left when A is pressed. 
 
              y -= speed * Math.sin(angle);
              x += speed * Math.cos(angle);
         }
+
+        //Code to go the right.
         else if (k.rightPressed) {
             //x += speed; //Moves right when D is pressed. 
             

@@ -19,8 +19,6 @@ public class KeyHandler implements KeyListener {
      * Tells the program what to do when a particular key has been pressed. 
      * 
      * @param e gets the key event.
-     * 
-     * @return void 
      */
     @Override
     public void keyPressed(KeyEvent e) { 
@@ -55,8 +53,6 @@ public class KeyHandler implements KeyListener {
      * Tells the program what to do when a particular key has been released. 
      * 
      * @param e gets the key event.
-     * 
-     * @return void
      */
 
     @Override

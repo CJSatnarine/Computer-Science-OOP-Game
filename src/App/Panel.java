@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 
 import javax.swing.JPanel;
 
@@ -96,11 +95,18 @@ public class Panel extends JPanel implements Runnable {
         player = new Player(playerX, playerY, tileSize, playerSpeed, angle, keyH, mouseMove);
     }
 
+    /*
+     * Starts the thread.
+     */
+
     public void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start(); 
     }
 
+    /*
+     * Game loop.
+     */
     @Override
     public void run() {
         double drawInterval = 1000000000/FPS;
@@ -130,6 +136,7 @@ public class Panel extends JPanel implements Runnable {
         }
     }
 
+    //Method to draw the objects. 
     public void update() {
         player.move();
 

@@ -4,6 +4,7 @@ import java.awt.event.*;
 
 public class MouseMovement implements MouseListener, MouseMotionListener {
 
+    //Mouse positions.
     public double mouseX;
     public double mouseY;
 
@@ -50,12 +51,14 @@ public class MouseMovement implements MouseListener, MouseMotionListener {
         mouseY = e.getY();
 
     } 
-
-    public double returnMouseX() {
+    
+    //Returns the mouse x position.
+    public double getMouseX() {
         return mouseX;
     }
     
-    public double returnMouseY() {
+    //Returns the mouse y position. 
+    public double getMouseY() {
         return mouseY;
     }
 }
