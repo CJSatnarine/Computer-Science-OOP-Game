@@ -170,10 +170,7 @@ public class Panel extends JPanel implements Runnable {
 
         //Draws each advanced enemy in the array list.
         for (int i = 0; i < numOfAdvancedEnemies; i++){
-            advancedEnemyList.get(i).draw(g2d);
-            if (advancedEnemyList.get(i).playerCollisionCheck(player)){
-                System.out.println("touched player");
-            }
+            advancedEnemyList.get(i).draw(g2d);  
         }
 
         //Draws each enemy in the array list.

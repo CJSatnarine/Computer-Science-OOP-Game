@@ -4,12 +4,13 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.concurrent.atomic.DoubleAdder;
 
-public abstract class Entity extends Rectangle{
+public abstract class Entity {
     protected int x;
     protected int y;
     protected int width;
     protected int height;
     protected int speed;
+    protected Rectangle hitBox;
 
     public Entity(int x, int y, int width, int height, int speed) {
         this.x = x;
@@ -52,11 +53,12 @@ public abstract class Entity extends Rectangle{
 
     public abstract void draw(Graphics2D g2);
 
-    public boolean playerCollisionCheck(Player player) {
-        if(this.intersects(player)) {
-            return true;
-        }
-        return false;
-    }
+    // public boolean playerCollisionCheck(Player player) {
+    //     hitBox = new Rectangle();
+    //     if(hitBox.intersects(player)) {
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
 }
