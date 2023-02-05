@@ -12,4 +12,4 @@ Blue enemies do nothing (for now).
 Red enemies follows the player and do nothing (for now).
 Projectiles just exists when the spacebar is pressed (for now).
 
-Basically everything is a mess. 👍
+I submitted the assignment on January 31, 2023. I will continue to work on this project. 
