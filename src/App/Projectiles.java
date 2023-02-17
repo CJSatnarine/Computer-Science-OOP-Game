@@ -27,7 +27,7 @@ public class Projectiles extends Entity{
 
         angle = Math.atan2(y - mouseY, x - mouseX);
 
-        y -= speed * Math.sin(angle);
-        x -= speed * Math.cos(angle);
+        y -= speed + Math.sin(angle);
+        x -= speed + Math.cos(angle);
     }
 }
