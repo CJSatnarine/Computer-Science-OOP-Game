@@ -40,7 +40,5 @@ public class Projectiles extends Entity{
         x += speed * Math.sin(angle);
         y += speed * Math.cos(angle);
 
-        System.out.println("Angle: " + angle);
-
     }
 }
