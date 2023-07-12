@@ -43,37 +43,21 @@ public class Player extends Entity{
         //Code to go forwards.
         if (k.upPressed) {
             y -= speed; //Moves up when W is pressed. 
-
-            //This makes the rectangle revolve around the mouse cursor. It looks funny. 
-            // x += speed * Math.sin(angle);
-            // y -= speed * Math.cos(angle);
-
-            // y -= speed * Math.sin(angle);
-            // x -= speed * Math.cos(angle);
         } 
         
         //Code to go backwards.
         else if (k.downPressed) {
             y += speed; //Moves down when S is pressed. 
-
-            // y += speed * Math.sin(angle);
-            // x += speed * Math.cos(angle);
         } 
 
         //Code to go the left.
         else if (k.leftPressed) {
-            x -= speed; //Moves left when A is pressed. 
-
-            //  y -= speed * Math.sin(angle);
-            //  x += speed * Math.cos(angle);
+            x -= speed; //Moves left when A is pressed.
         }
 
         //Code to go the right.
         else if (k.rightPressed) {
-            x += speed; //Moves right when D is pressed. 
-            
-            // y += speed * Math.sin(angle);
-            // x -= speed * Math.cos(angle);
+            x += speed; //Moves right when D is pressed.
         }
     }
 }
