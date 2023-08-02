@@ -28,7 +28,7 @@ public class Player extends Entity{
         g2.rotate(angle, x + (size / 2), y + (size / 2));
         g2.setColor(purple);
         g2.fillRect(x, y, size, size);
-        g2.rotate(-angle, x + (size / 2), y + (size / 2));
+        g2.setColor(Color.WHITE);
         g2.setTransform(reset);
 
         //g2.dispose(); //causes the JFrame window to be destroyed and cleaned up by the operating system.

@@ -9,6 +9,13 @@
             "name": "Main",
             "request": "launch",
             "mainClass": "App.Main",
+            "projectName": "Computer-Science-OOP-Game_cef3e23b"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "App.Main",
             "projectName": "Computer-Science-OOP-Game_1eb15b78"
         },
         {

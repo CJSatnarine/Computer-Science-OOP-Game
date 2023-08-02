@@ -47,6 +47,8 @@ public class Panel extends JPanel implements Runnable {
     public int projectileHeight = 30;
     public int projectileSpeed = 2;
     public int projectileCount = 0;
+    // public double magnitude = Math.PI / 4;
+    public double magnitude = 2.0;
     
 
     //Enemy variables.
@@ -141,7 +143,7 @@ public class Panel extends JPanel implements Runnable {
         player.move();
 
         if(keyH.spacePressed && orbList.size() <= 100) {
-            orbList.add(new Projectiles((int) player.getX(), (int) player.getY(), projectileWidth, projectileHeight, projectileSpeed, mouseMove));
+            orbList.add(new Projectiles((int) player.getX(), (int) player.getY(), projectileWidth, projectileHeight, projectileSpeed, magnitude, mouseMove));
             projectileCount++;
         }
         
