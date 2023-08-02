@@ -62,4 +62,11 @@ public abstract class Entity {
 
     // Draws the entity;
     public abstract void draw(Graphics2D g2);
+
+    // Interects. 
+    public boolean intersects(Entity entity) {
+        Rectangle thisBounds = new Rectangle(x, y, width, height);
+        Rectangle entityBounds = new Rectangle(entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight());
+        return thisBounds.intersects(entityBounds);
+    }
 }
