@@ -20,30 +20,39 @@ public abstract class Entity {
         this.speed = speed;
     }
 
-    public double getX() {
+    // Get and set x.
+    public int getX() {
         return x;
     }
     public void setX(int x) {
         this.x = x;
     }
-    public double getY() {
+
+    // Get and set y. 
+    public int getY() {
         return y;
     }
     public void setY(int y) {
         this.y = y;
     }
-    public double getWidth() {
+
+    // Get and set width. 
+    public int getWidth() {
         return width;
     }
     public void setWidth(int width) {
         this.width = width;
     }
-    public double getHeight() {
+
+    // Get and set height. 
+    public int getHeight() {
         return height;
     }
     public void setHeight(int height) {
         this.height = height;
     }
+
+    // Get and set speed. 
     public int getSpeed() {
         return speed;
     }
@@ -51,6 +60,6 @@ public abstract class Entity {
         this.speed = speed;
     }
 
-    //Draws the entity;
+    // Draws the entity;
     public abstract void draw(Graphics2D g2);
 }
