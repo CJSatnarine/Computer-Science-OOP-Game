@@ -171,25 +171,29 @@ public class Panel extends JPanel implements Runnable {
     public void collisionCheck() {
         for(int i = 0; i < numOfAdvancedEnemies; i++) {
             for(int j = 0; j < projectileList.size(); j++) {
-                for(int k = 0; i < numOfEnemies; k++) {
-                    // If projectile hits advanced enemy.
+                for(int k = 0; k < numOfEnemies; k++) {
+                    // If projectile hits advanced enemy then the projectile will push it back.
                     if(projectileList.get(j).intersects(advancedEnemyList.get(i))) {
                         advancedEnemyList.get(i).move();
                     }
 
-                    // If projectile hits enemy.
+                    // If projectile hits enemy then the projectile will push it back. 
+                    if(projectileList.get(j).intersects(enemyList.get(k))) {
+                        enemyList.get(k).move();
+                    }
 
-
-                    // If advanced enemy hits advanced enemy
-
-
-                    // If enemy hits enemy
+                    // If an advanced enemy hits another advanced enemy then they will push each other in a way that will not make them merge together. 
                     
 
-                    // If advanced enemy hits player. 
+                    // If an enemy hits another enemy then they will go into separate directions.
                     
 
-                    // If player hits enemy. 
+                    // If an advanced enemy hits player then the player will lose two lives and will pitch back. 
+                    
+
+                    // If an enemy hits the player then the player will lose one life and will pitch back. 
+
+
                 }
             }
         }
