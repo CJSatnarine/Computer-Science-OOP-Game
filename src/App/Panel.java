@@ -29,7 +29,7 @@ public class Panel extends JPanel implements Runnable {
     //Other stuff
     private ArrayList<Enemy> enemyList;
     private ArrayList<AdvancedEnemy> advancedEnemyList;
-    private ArrayList<Projectiles> orbList;
+    private ArrayList<Projectiles> projectileList;
     private KeyHandler keyH = new KeyHandler();
     private MouseMovement mouseMove = new MouseMovement();
     private Player player;
@@ -92,7 +92,7 @@ public class Panel extends JPanel implements Runnable {
         }
 
         //Creates an arraylist of balls.
-        orbList = new ArrayList<Projectiles>();
+        projectileList = new ArrayList<Projectiles>();
 
         player = new Player(playerX, playerY, tileSize, playerSpeed, angle, keyH, mouseMove);
     }
@@ -142,13 +142,13 @@ public class Panel extends JPanel implements Runnable {
     public void update() {
         player.move();
 
-        if(keyH.spacePressed && orbList.size() <= 100) {
-            orbList.add(new Projectiles((int) player.getX(), (int) player.getY(), projectileWidth, projectileHeight, projectileSpeed, magnitude, mouseMove));
+        if(keyH.spacePressed && projectileList.size() <= 100) {
+            projectileList.add(new Projectiles((int) player.getX(), (int) player.getY(), projectileWidth, projectileHeight, projectileSpeed, magnitude, mouseMove));
             projectileCount++;
         }
         
         for (int i = 0; i < projectileCount; i++){
-            orbList.get(i).move();
+            projectileList.get(i).move();
         }
 
         //Moves each advanced enemy in the array list. 
@@ -161,9 +161,37 @@ public class Panel extends JPanel implements Runnable {
             enemyList.get(i).move();
         }
 
-        if(orbList.size() > 100) {
-            orbList.remove(0);
+        if(projectileList.size() > 100) {
+            projectileList.remove(0);
             projectileCount--;
+        }
+        collisionCheck();
+    }
+
+    public void collisionCheck() {
+        for(int i = 0; i < numOfAdvancedEnemies; i++) {
+            for(int j = 0; j < projectileList.size(); j++) {
+                for(int k = 0; i < numOfEnemies; k++) {
+                    // If projectile hits advanced enemy.
+                    if(projectileList.get(j).intersects(advancedEnemyList.get(i))) {
+                        advancedEnemyList.get(i).move();
+                    }
+
+                    // If projectile hits enemy.
+
+
+                    // If advanced enemy hits advanced enemy
+
+
+                    // If enemy hits enemy
+                    
+
+                    // If advanced enemy hits player. 
+                    
+
+                    // If player hits enemy. 
+                }
+            }
         }
     }
 
@@ -174,7 +202,7 @@ public class Panel extends JPanel implements Runnable {
         Graphics2D g2d = (Graphics2D) g;
 
         for (int i = 0; i < projectileCount; i++){
-            orbList.get(i).draw(g2d);
+            projectileList.get(i).draw(g2d);
         }
 
         //Draws each advanced enemy in the array list.
@@ -190,4 +218,5 @@ public class Panel extends JPanel implements Runnable {
         player.draw(g2d);
         g2d.dispose();
     }
+
 } 
