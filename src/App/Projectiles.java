@@ -2,8 +2,9 @@ package App;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
-public class Projectiles extends Entity{
+public class Projectiles extends Entity {
     private double angle;
     private double magnitude;
 
@@ -33,5 +34,11 @@ public class Projectiles extends Entity{
 
         x += (int) deltaX;
         y += (int) deltaY;
+    }
+
+    public boolean intersects(Entity entity) {
+        Rectangle thisBounds = new Rectangle(x, y, width, height);
+        Rectangle entityBounds = new Rectangle(entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight());
+        return thisBounds.intersects(entityBounds);
     }
 }
