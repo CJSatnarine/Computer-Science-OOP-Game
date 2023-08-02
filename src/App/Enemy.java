@@ -3,7 +3,7 @@ package App;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-public class Enemy extends Entity{
+public class Enemy extends Entity {
 
     public Enemy(int x, int y, int width, int height, int speed) {
         super(x, y, width, height, speed);
