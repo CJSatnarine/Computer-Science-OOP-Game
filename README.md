@@ -1,15 +1,15 @@
 OOP assignment for Computer Science class. 
 
-- W is to move towards mouse position. 
-- S is to move away from mouse position. 
-- A is supposed to move left. 
-- D is supposed to move right. 
-- Spacebar is supposed to shoot projectiles. 
+- W moves up. 
+- S moves down. 
+- A moves left. 
+- D moves right. 
+- Spacebar shoots projectiles. 
 
 NOTE: the left and right movements are not implimented properly. 
 
-- Blue enemies do nothing (for now).
+- Blue enemies exist in the code, but will do nothing in the game. I plan to remove them because they seem useless.  
 - Red enemies follows the player and do nothing (for now).
-- Projectiles just exists when the spacebar is pressed (for now).
+- Projectiles push the enemies away.
 
 I submitted the assignment on January 31, 2023. I will continue to work on this project. 
