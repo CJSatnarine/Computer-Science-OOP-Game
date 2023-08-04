@@ -10,6 +10,7 @@ public class Player extends Entity{
     private Color purple = new Color(123, 50, 150);
     private int size;
     private double angle;
+    public int health = 10;
 
     private KeyHandler k;
     private MouseMovement mouseMove;
@@ -59,5 +60,11 @@ public class Player extends Entity{
         else if (k.rightPressed) {
             x += speed; //Moves right when D is pressed.
         }
+    }
+
+    public void reduceHealth() {
+        health--;
+        
+        if(health == 0) System.out.println("dead");
     }
 }
