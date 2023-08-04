@@ -157,11 +157,9 @@ public class Panel extends JPanel implements Runnable {
 
                 // If an advanced enemy hits another advanced enemy then they will push each other in a way that will not make them merge together. 
                 
-
                 // If an advanced enemy hits player then the player will lose two lives and will pitch back. 
                 if(advancedEnemyList.get(i).intersects(player)) {
                     player.reduceHealth();
-                    System.out.println(player.health);
                 }
             }
         }

@@ -64,7 +64,6 @@ public class Player extends Entity{
 
     public void reduceHealth() {
         health--;
-        
-        if(health == 0) System.out.println("dead");
+        System.out.println(health);
     }
 }

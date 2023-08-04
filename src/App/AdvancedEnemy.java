@@ -37,5 +37,5 @@ public class AdvancedEnemy extends Enemy {
 
         y -= speed * Math.sin(angle);
         x -= speed * Math.cos(angle);
-      }
+    }
 }
