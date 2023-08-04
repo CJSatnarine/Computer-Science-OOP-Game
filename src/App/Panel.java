@@ -27,7 +27,6 @@ public class Panel extends JPanel implements Runnable {
     private int FPS = 60;
 
     //Other stuff
-    private ArrayList<Enemy> enemyList;
     private ArrayList<AdvancedEnemy> advancedEnemyList;
     private ArrayList<Projectiles> projectileList;
     private KeyHandler keyH = new KeyHandler();
@@ -49,13 +48,6 @@ public class Panel extends JPanel implements Runnable {
     public int projectileCount = 0;
     // public double magnitude = Math.PI / 4;
     public double magnitude = 2.0;
-    
-
-    //Enemy variables.
-    private int enemyX = rand.nextInt(screenWidth - tileSize);
-    private int enemyY = rand.nextInt(screenHeight - tileSize);
-    private int enemySpeed = 3;
-    private int numOfEnemies = 20;
 
     //Advanced enemy variables.
     private int advancedEnemyX = rand.nextInt(screenWidth - tileSize);;
@@ -74,14 +66,6 @@ public class Panel extends JPanel implements Runnable {
 
         //Sets the angle.
         angle = 0;
-
-        //Creates an arraylist of enemies.
-        enemyList = new ArrayList<Enemy>();
-        for(int i = 0; i < numOfEnemies; i++) {
-          enemyList.add(new Enemy(enemyX, enemyY, tileSize, tileSize, enemySpeed));
-          enemyX = rand.nextInt(screenWidth - tileSize);
-          enemyY = rand.nextInt(screenHeight - tileSize);
-        }
 
         //Creates an arraylist of advanced enemies. 
         advancedEnemyList = new ArrayList<AdvancedEnemy>();
@@ -156,11 +140,6 @@ public class Panel extends JPanel implements Runnable {
             advancedEnemyList.get(i).move(player);
         }
 
-        //Moves each enemy in the array list. 
-        for (int i = 0; i < numOfEnemies; i++){
-            enemyList.get(i).move();
-        }
-
         if(projectileList.size() > 100) {
             projectileList.remove(0);
             projectileCount--;
@@ -171,30 +150,16 @@ public class Panel extends JPanel implements Runnable {
     public void collisionCheck() {
         for(int i = 0; i < numOfAdvancedEnemies; i++) {
             for(int j = 0; j < projectileList.size(); j++) {
-                for(int k = 0; k < numOfEnemies; k++) {
-                    // If projectile hits advanced enemy then the projectile will push it back.
-                    if(projectileList.get(j).intersects(advancedEnemyList.get(i))) {
-                        advancedEnemyList.get(i).move();
-                    }
-
-                    // If projectile hits enemy then the projectile will push it back. 
-                    if(projectileList.get(j).intersects(enemyList.get(k))) {
-                        enemyList.get(k).move();
-                    }
-
-                    // If an advanced enemy hits another advanced enemy then they will push each other in a way that will not make them merge together. 
-                    
-
-                    // If an enemy hits another enemy then they will go into separate directions.
-                    
-
-                    // If an advanced enemy hits player then the player will lose two lives and will pitch back. 
-                    
-
-                    // If an enemy hits the player then the player will lose one life and will pitch back. 
-
-
+                // If projectile hits advanced enemy then the projectile will push it back.
+                if(projectileList.get(j).intersects(advancedEnemyList.get(i))) {
+                    advancedEnemyList.get(i).move();
                 }
+
+                // If an advanced enemy hits another advanced enemy then they will push each other in a way that will not make them merge together. 
+                
+
+                // If an advanced enemy hits player then the player will lose two lives and will pitch back. 
+                
             }
         }
     }
@@ -212,11 +177,6 @@ public class Panel extends JPanel implements Runnable {
         //Draws each advanced enemy in the array list.
         for (int i = 0; i < numOfAdvancedEnemies; i++){
             advancedEnemyList.get(i).draw(g2d);  
-        }
-
-        //Draws each enemy in the array list.
-        for (int i = 0; i < numOfEnemies; i++){
-            enemyList.get(i).draw(g2d);
         }
 
         player.draw(g2d);
