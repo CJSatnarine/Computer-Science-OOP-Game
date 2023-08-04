@@ -148,18 +148,23 @@ public class Panel extends JPanel implements Runnable {
     }
 
     public void collisionCheck() {
-        for(int i = 0; i < numOfAdvancedEnemies; i++) {
+        for(int i = 1; i < numOfAdvancedEnemies; i++) {
             for(int j = 0; j < projectileList.size(); j++) {
                 // If projectile hits advanced enemy then the projectile will push it back.
                 if(projectileList.get(j).intersects(advancedEnemyList.get(i))) {
                     advancedEnemyList.get(i).move();
                 }
 
-                // If an advanced enemy hits another advanced enemy then they will push each other in a way that will not make them merge together. 
-                
-                // If an advanced enemy hits player then the player will lose two lives and will pitch back. 
+                // If an advanced enemy hits another advanced enemy then they will not merge together.  
+                if(advancedEnemyList.get(i).intersects(advancedEnemyList.get(i - 1))) {
+                    advancedEnemyList.get(i).move();
+                }
+
+                // If an advanced enemy hits player then the player will lose one health.
                 if(advancedEnemyList.get(i).intersects(player)) {
                     player.reduceHealth();
+
+                    // Create the case when the game ends. 
                 }
             }
         }
@@ -171,11 +176,12 @@ public class Panel extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
 
+        // Draws each projectile. 
         for (int i = 0; i < projectileCount; i++){
             projectileList.get(i).draw(g2d);
         }
 
-        //Draws each advanced enemy in the array list.
+        // Draws each advanced enemy in the array list.
         for (int i = 0; i < numOfAdvancedEnemies; i++){
             advancedEnemyList.get(i).draw(g2d);  
         }
@@ -183,5 +189,4 @@ public class Panel extends JPanel implements Runnable {
         player.draw(g2d);
         g2d.dispose();
     }
-
 } 

@@ -63,7 +63,7 @@ public class Player extends Entity{
     }
 
     public void reduceHealth() {
-        health--;
+        if (health > 0) health--;
         System.out.println(health);
     }
 }
