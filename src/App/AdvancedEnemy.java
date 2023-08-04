@@ -28,7 +28,7 @@ public class AdvancedEnemy extends Enemy {
 
     }
 
-    //Moves the advanced enemy towards the player's position, making it following the player. 
+    // Moves the advanced enemy towards the player's position, making it following the player. 
     public void move(Player player) {
         int playerX = (int) player.getX();
         int playerY = (int) player.getY();
@@ -38,4 +38,6 @@ public class AdvancedEnemy extends Enemy {
         y -= speed * Math.sin(angle);
         x -= speed * Math.cos(angle);
     }
+
+    // What to do when attacking the player. 
 }
