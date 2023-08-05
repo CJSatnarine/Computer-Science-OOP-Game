@@ -10,7 +10,7 @@ I have no plan on what this game is, I was just adding random things as I coded 
 - Spacebar shoots projectiles. 
 
 # Sprites:
-- Blue enemies exist in the code, but will do nothing in the game. I plan to remove them because they seem useless.  
-- Red enemies follow the player and do nothing (for now).
+- Blue enemies exist in the code, but will do nothing in the game. I would probably remove them eventually because they seem useless.  
+- Red enemies follow the player and do nothing for now.
 - Projectiles push the enemies away.
 - The player is, well, the player.
