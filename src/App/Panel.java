@@ -46,7 +46,6 @@ public class Panel extends JPanel implements Runnable {
     public int projectileHeight = 30;
     public int projectileSpeed = 2;
     public int projectileCount = 0;
-    // public double magnitude = Math.PI / 4;
     public double magnitude = 2.0;
 
     //Advanced enemy variables.
@@ -136,7 +135,7 @@ public class Panel extends JPanel implements Runnable {
         }
 
         //Moves each advanced enemy in the array list. 
-        for (int i = 0; i < numOfAdvancedEnemies; i++){
+        for (int i = 0; i < advancedEnemyList.size(); i++){
             advancedEnemyList.get(i).move(player);
         }
 
@@ -148,7 +147,7 @@ public class Panel extends JPanel implements Runnable {
     }
 
     public void collisionCheck() {
-        for(int i = 0; i < numOfAdvancedEnemies; i++) {
+        for(int i = 0; i < advancedEnemyList.size(); i++) {
             for(int j = 0; j < projectileList.size(); j++) {
                 // If projectile hits advanced enemy then the projectile will push it back.
                 if(projectileList.get(j).intersects(advancedEnemyList.get(i))) {
