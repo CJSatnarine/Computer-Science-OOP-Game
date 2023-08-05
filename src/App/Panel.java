@@ -165,6 +165,9 @@ public class Panel extends JPanel implements Runnable {
                     player.reduceHealth();
 
                     // Create the case when the game ends. 
+                    /*
+                     * if(player.health == 0) endGameThread or something like that. 
+                     */
                 }
             }
         }
