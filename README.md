@@ -1,13 +1,13 @@
 OOP assignment for Computer Science class. 
 
-* Movement:
+# Movement:
 - W moves up. 
 - S moves down. 
 - A moves left. 
 - D moves right. 
 - Spacebar shoots projectiles. 
 
-* Sprites:
+# Sprites:
 - Blue enemies exist in the code, but will do nothing in the game. I plan to remove them because they seem useless.  
 - Red enemies follow the player and do nothing (for now).
 - Projectiles push the enemies away.
