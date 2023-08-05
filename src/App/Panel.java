@@ -34,12 +34,14 @@ public class Panel extends JPanel implements Runnable {
     private Player player;
     private Random rand = new Random();
     private Thread gameThread;
+    private Healthbar healthbar;
 
     //Player's variables. 
     private double angle;
     public int playerX = 20;
     public int playerY = 20;
     private int playerSpeed = 4;
+    private boolean isHit = false;
 
     //Projectile variables.
     public int projectileWidth = 30;
@@ -78,6 +80,7 @@ public class Panel extends JPanel implements Runnable {
         projectileList = new ArrayList<Projectiles>();
 
         player = new Player(playerX, playerY, tileSize, playerSpeed, angle, keyH, mouseMove);
+        healthbar = new Healthbar(player.health, isHit);
     }
 
     /*
@@ -144,6 +147,7 @@ public class Panel extends JPanel implements Runnable {
             projectileCount--;
         }
         collisionCheck();
+        healthbar.reduceHealthBar();
     }
 
     public void collisionCheck() {
@@ -157,7 +161,7 @@ public class Panel extends JPanel implements Runnable {
                 // If an advanced enemy hits player then the player will lose one health.
                 if(advancedEnemyList.get(i).intersects(player)) {
                     player.reduceHealth();
-
+                    isHit = true;
                     // Create the case when the game ends. 
                     /*
                      * if(player.health == 0) endGameThread or something like that. 
@@ -192,6 +196,7 @@ public class Panel extends JPanel implements Runnable {
         }
 
         player.draw(g2d);
+        healthbar.draw(g2d);
         g2d.dispose();
     }
 } 
