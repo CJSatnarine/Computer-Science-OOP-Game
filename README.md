@@ -1,4 +1,6 @@
-OOP assignment for Computer Science class. 
+This project was an assignment to prove my understanding of Object Oriented Programming for Computer Science class. The assignment was submitted on the 31st of January, 2023. 
+
+I have no plan on what this game is, I was just adding random things as I coded along. 
 
 # Movement:
 - W moves up. 
@@ -12,5 +14,3 @@ OOP assignment for Computer Science class.
 - Red enemies follow the player and do nothing (for now).
 - Projectiles push the enemies away.
 - The player is, well, the player.
-
-I submitted the assignment on January 31, 2023. I will continue to work on this project. 
