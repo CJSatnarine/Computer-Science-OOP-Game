@@ -5,27 +5,18 @@ import java.awt.Graphics2D;
 
 public class Healthbar {
     int health;
-    boolean hit;
 
     int x = 10;
     int y = 10;
     int width = health * 10;
     int height = 20;
 
-    public Healthbar(int playerHealth, boolean isHit) {
+    public Healthbar(int playerHealth) {
         health = playerHealth;
-        hit = isHit;
     }
     
     public void draw(Graphics2D g2) {
         g2.setColor(Color.RED);
-        g2.fillRect(x, y, width, height);
-    }
-
-    public void reduceHealthBar() {
-        if(hit) {
-            health -= 10;
-            hit = false;
-        }
+        g2.fillRect(10, 10, health * 10, 20);
     }
 }
