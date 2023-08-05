@@ -148,15 +148,10 @@ public class Panel extends JPanel implements Runnable {
     }
 
     public void collisionCheck() {
-        for(int i = 1; i < numOfAdvancedEnemies; i++) {
+        for(int i = 0; i < numOfAdvancedEnemies; i++) {
             for(int j = 0; j < projectileList.size(); j++) {
                 // If projectile hits advanced enemy then the projectile will push it back.
                 if(projectileList.get(j).intersects(advancedEnemyList.get(i))) {
-                    advancedEnemyList.get(i).move();
-                }
-
-                // If an advanced enemy hits another advanced enemy then they will not merge together.  
-                if(advancedEnemyList.get(i).intersects(advancedEnemyList.get(i - 1))) {
                     advancedEnemyList.get(i).move();
                 }
 
@@ -169,6 +164,14 @@ public class Panel extends JPanel implements Runnable {
                      * if(player.health == 0) endGameThread or something like that. 
                      */
                 }
+            }
+        }
+
+        // Separate for loop for advanced enemy collisions. 
+        for (int i = 1; i < advancedEnemyList.size(); i++) {
+            // If an advanced enemy hits another advanced enemy then they will not merge together.  
+            if(advancedEnemyList.get(i).intersects(advancedEnemyList.get(i - 1))) {
+                advancedEnemyList.get(i).move();
             }
         }
     }
